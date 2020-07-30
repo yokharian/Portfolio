@@ -1,0 +1,89 @@
+body {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: #f9f9fa;
+	background-image: url('../img/dots.png');
+	background-size: auto;
+	text-align: center;
+	margin-top: 40px;
+}
+p {
+	font-family: 'Karla', sans-serif;
+}
+.desc-elem {
+  display: inline;
+}
+#desc {
+  display: inline;
+}
+
+#desc-left {
+	margin-top: 60px;
+  float: left;
+  display: inline;
+}
+
+#desc-right {
+	margin-top: 60px;
+  float: right;
+  display: inline;
+}
+
+#desc p {
+}
+
+.platform-holder {
+	width: 50px;
+}
+
+#face {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	
+	border-radius: 30px;
+	background: url('../img/drapaiton.png') no-repeat center center;
+	background-size: cover;
+	
+	transition: width 0.5s;
+	-webkit-transition: width 0.5s;
+}
+
+#face:hover {
+	width: 250px;
+}
+
+#top-sheet {
+	width: 350px;
+	display: inline-block;
+}
+
+#platforms {
+	margin: 40px;
+	display: -webkit-inline-box;
+}
+#platforms i {
+	text-align: center;
+	font-size: 30px;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+}
+
+#platforms i:hover {
+	scale: 125%;
+}
+
+#platforms .fa-github:hover {
+	color: black;
+}
+
+#platforms .fa-linkedin-square:hover {
+	color: #4287f5;
+}
+
+#platforms .fa-database:hover {
+	color: black;
+}
