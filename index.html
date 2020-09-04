@@ -2,93 +2,201 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-	<link rel="manifest" href="favicon/site.webmanifest">
-	<title>Portfolio</title>
-	<meta name="description" content="Dra. Paiton Backend Developer" />
-	<meta name="og:title" content="Portfolio" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-	<script src="https://use.fontawesome.com/79bb4854a1.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/portfolio.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Roboto", sans-serif
+        }
+
+        body {
+            background-color: #f9f9fa;
+            background-image: url("img/dots.png");
+            background-size: auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #face {
+            display: inline-block;
+            width: 100%;
+            height: 400px;
+            background: url('img/drapaiton.png') no-repeat center center;
+            background-size: cover;
+            transition: width 1s;
+            -webkit-transition: width 1s;
+        }
+
+        #face:hover {
+            width: 90%;
+        }
+
+    </style>
 </head>
 
+<body class="w3-light-grey">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+            <!-- Left Column -->
+            <div class="w3-third">
+
+                <div class="w3-white w3-text-grey w3-card-4">
+
+                    <div class="w3-display-container">
+                        <div id="face"></div>
+
+                        <div class="w3-display-bottomleft w3-container w3-text-black">
+                            <h2 class="w3-text-white w3-opacity">&nbsp;&nbsp;Dra. Paiton</h2>
+                        </div>
+                    </div>
+
+                    <div class="w3-container">
+                        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Backend Developer
+                        </p>
+                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i> <a
+                                href="mailto:drapaiton@gmail.com?Subject=Business">drapaiton@gmail.com</a>
+                        </p>
+                        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>CDMX, MX&nbsp;
+                            <i class="em em-flag-mx" aria-role="presentation" aria-label="Mexico Flag"></i>
+                        </p>
+
+                        <hr>
+                        Hi there<br>
+                        <i class="em em-snake"></i> My name is Sofia Teb. aka Dra. Paiton<br>
+                        Backend Developer Autodidact <i class="em em-brain"></i><br>
+                        <i class="em em-small_airplane"></i> I'am studying full time creating software,<br>
+                        reading books, following people. <i class="em em-first_place_medal"></i><br>
+
+                        <hr>
+
+                        <p class="w3-large"><b><i
+                                    class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills</b></p>
+                        Self-learning <i class="em em-beginner"></i><br>
+                        Problem solving<br>
+                        Python javascript<br>
+                        <p class="w3-large"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Tech
+                            Stack</p>
+                        gunicorn daphne node <i class="em em-globe_with_meridians" aria-role="presentation"
+                            aria-label="GLOBE WITH MERIDIANS"></i><br>
+                        linux npm Git heroku<br>
+                        html css typescript<br><br>
+                    </div>
+                </div><br>
+
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-twothird">
+
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16"><i
+                            class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Personal Projects
+                    </h2>
 
 
-<body class="background-container">
+                    <div class="w3-container">
+                        <a href="https://github.com/drapaiton/noicefluid">
+                            <h5 class="w3-opacity">
+                                <b>Noicefluid.com</b></h5>
+                        </a>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>June 2020 - <span
+                                class="w3-tag w3-blue w3-round">Today</span></h6>
+                        <p>😎 finally a useful social network</p>
+                        <hr>
+                    </div>
+                    <div class="w3-container">
+                        <a href="https://discordmsgapi.herokuapp.com/">
+                            <h5 class="w3-opacity"><b>DiscordMsgApi</b></h5>
+                        </a>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>August 2020
+                        </h6>
+                        <p>🤡 An REST API that provides fake screenshots of discord messages.</p>
+                    </div>
 
-	<div
-		class="my-5 card shadow-lg rounded mx-auto bg-white border-dark card-body col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3">
-
-		<header>
-			<div id="top-sheet">
-				<div id="desc-left">
-					<div class="desc-elem">
-						<i class="em em-brain"></i>
-					</div>
-					<div class="desc-elem">
-						<p></p><i class="em em-snake"></i>
-					</div>
-				</div>
-				<div id="face"></div>
-				<div id="desc-right">
-					<div class="desc-elem">
-						<p></p><i class="em em-first_place_medal"></i>
-					</div>
-					<div class="desc-elem">
-						<p></p><i class="em em-small_airplane"></i>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<div>
-			<div class="card-text">
-				<div id="bio">
-					<p><cite title="Source Title">Hi there</cite></p>
+                </div>
 
 
-					<p>My name is Sofia Teb. aka Dra. Paiton</p>
-					<p>Actually living in Mexico. <i class="em em-flag-mx"></i> </p>
-					</p>
-					<p>Backend Developer Autodidact</p>
-					<p>I'am studying full time creating software,</p>
-					<p>reading books, following people.</p>
-				</div>
-				<div id="platforms">
+                <div class="w3-container w3-card w3-white">
+                    <h2 class="w3-text-grey w3-padding-16">
+                        <i class="" aria-role="presentation" aria-label="OPEN BOOK"></i>
+                        <i class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>How i learn by myself
+                    </h2>
 
-					<div class="platform-holder">
-						<a href="https://github.com/drapaiton">
-							<i class="fa fa-github" aria-hidden="true"></i>
-						</a>
-					</div>
-					<div class="platform-holder">
-						<a href="https://www.linkedin.com/in/drapaiton/">
-							<i class="fa fa-linkedin-square" aria-hidden="true"></i>
-					</div>
-					<div class="platform-holder">
-						<a href="http://www.noicefluid.com/">
-							<i class="fa fa-database" aria-hidden="true"></i>
-						</a>
-					</div>
-				</div>
-				<br>
-				<a href="mailto:drapaiton@gmail.com?Subject=Business">Contact</a>
-			</div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Reading Books & Articles</b></h5>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>5 months - <span
+                                class="w3-tag w3-blue w3-round">Current</span></h6>
+                        <p>clean code, realpython.com, coffee break python, the quick python book, grokking algorithms,
+                            etc...</p>
 
-		</div>
+                        <hr>
+                    </div>
 
-	</div>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>Creating my own <a href="https://github.com/drapaiton">open-source</a>
+                                projects</b></h5>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>4 months - <span
+                                class="w3-tag w3-blue w3-round">Current</span></h6>
+                        <hr>
+                    </div>
 
+                    <div class="w3-container">
+                        <h5 class="w3-opacity">
+                            <a href="https://www.hackerrank.com/"><b>Hackerrank</b></a><b> Algorithms</b></h5>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>3 month</h6>
+                        <hr>
+                    </div>
+
+                    <div class="w3-container">
+                        <a href="https://docs.hektorprofe.net/python/">
+                            <h5 class="w3-opacity"><b>Curso Python</b></h5>
+                        </a>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1 month</h6>
+                        <p>Program Object Oriented, inheritance, polymorphism, Unit Test, Problem Solving</p>
+                    </div>
+
+                </div>
+
+
+                <!-- End Right Column -->
+            </div>
+
+            <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+    </div>
+
+    <footer class="w3-container w3-brown w3-center w3-margin-top">
+        <p>Find me on social media.</p>
+        <a href="https://github.com/drapaiton"><i class="fa fa-github-square w3-hover-opacity"></i></a>
+        <a href="https://www.linkedin.com/in/drapaiton/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        <a href="https://www.paypal.me/drapaiton"><i class="fa fa-paypal w3-hover-opacity"></i></a>
+        <a href="https://www.noicefluid.com/"><i class="fa fa-star-half-full w3-hover-opacity"></i></a>
+        <br><br>
+    </footer>
 
 </body>
-
-
-
 
 </html>
