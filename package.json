@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "npx angular-cli-ghpages --cname='noicefluid.com' --dir='dist/DraPaitonPortfolio/' --no-silent"
+    "deploy": "npx angular-cli-ghpages --cname='noicefluid.com' --dir='dist' --no-silent"
   },
   "private": true,
   "dependencies": {

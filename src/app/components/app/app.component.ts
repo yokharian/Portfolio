@@ -5,23 +5,15 @@ import { SwiperOptions } from 'swiper';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public show: boolean = true;
-
   public slides = [
     'First slide',
     'Second slide',
     'Third slide',
     'Fourth slide',
     'Fifth slide',
-    'Sixth slide',
   ];
-
-  public type: string = 'component';
-
-  public disabled: boolean = false;
 
   public config: SwiperOptions = {
     a11y: { enabled: true },
@@ -31,7 +23,9 @@ export class AppComponent {
     mousewheel: true,
     scrollbar: false,
     navigation: true,
-    pagination: false,
+    pagination: true,
+    parallax: true,
+    speed: 600,
   };
 
   @ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
