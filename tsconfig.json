@@ -19,16 +19,11 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths":{
-      "ngx-swiper-wrapper": [
-        "dist/lib"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
+  }
 }
