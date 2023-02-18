@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /**
- * @title Slider with custom thumb label formatting.
+ * @title Slider that transforms a number into a Roman numeral in real time.
  */
 @Component({
   selector: 'app-roma-script',
@@ -9,9 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./roma-script.component.sass'],
 })
 export class RomaScriptComponent {
-  sliderValue = 0;
   calculatedValue = '';
-  updateSetting(event: any): void {
-    this.calculatedValue = convertToRoman(this.sliderValue);
+  onInputChange(event: Event): void {
+    this.calculatedValue = convertToRoman(parseInt((event.target as HTMLInputElement).value));
   }
 }
