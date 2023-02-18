@@ -6,9 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Pre Requisites
 
 ```shell
-npm install --global yarn @aws-amplify/cli @angular/cli
-```
-```shell
 npm install
 ```
 
