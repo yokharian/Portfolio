@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "drapaiton-web": {
+    "portfolio-sofia-escobedo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,15 +20,36 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/drapaiton-web",
+            "outputPath": "dist/portfolio-sofia-escobedo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.sass"],
-            "scripts": ["src/assets/js/roma-script.js"]
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.sass",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.css"
+            ],
+            "scripts": [
+              "src/assets/js/roma-script.js",
+              "node_modules/mermaid/dist/mermaid.min.js",
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.js",
+              "node_modules/emoji-toolkit/lib/js/joypixels.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,18 +84,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "drapaiton-web:build"
+            "browserTarget": "portfolio-sofia-escobedo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "drapaiton-web:build:production"
+              "browserTarget": "portfolio-sofia-escobedo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "drapaiton-web:build"
+            "browserTarget": "portfolio-sofia-escobedo:build"
           }
         },
         "test": {
@@ -84,8 +105,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.sass"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.sass"
+            ],
             "scripts": []
           }
         },
@@ -97,23 +124,28 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "drapaiton-web:serve"
+            "devServerTarget": "portfolio-sofia-escobedo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "drapaiton-web:serve:production"
+              "devServerTarget": "portfolio-sofia-escobedo:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "drapaiton-web"
+  "defaultProject": "portfolio-sofia-escobedo",
+  "cli": {
+    "analytics": false
+  }
 }
