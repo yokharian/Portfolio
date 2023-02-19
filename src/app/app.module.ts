@@ -16,14 +16,13 @@ import { MarkdownModule } from 'ngx-markdown';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatCardModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
