@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
 export class RomaScriptComponent {
   calculatedValue = '';
   onInputChange(event: Event): void {
-    this.calculatedValue = convertToRoman(parseInt((event.target as HTMLInputElement).value));
+    this.calculatedValue = convertToRoman(
+      parseInt((event.target as HTMLInputElement).value)
+    );
   }
 }

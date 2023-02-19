@@ -33,7 +33,7 @@ function convertToRoman(num) {
   const magnitudes = ((val) =>
     val
       .toString()
-      .split("")
+      .split('')
       .map((v) => parseInt(v, 10))
       .reduce(
         (acc, value, index, arr) =>
@@ -88,7 +88,7 @@ function convertToRoman(num) {
   return magnitudes
     .reduce((output, magnitud) => {
       let _COUNTER = 0;
-      let _ACCOUTPUT = "";
+      let _ACCOUTPUT = '';
 
       while (_COUNTER !== magnitud) {
         const difWithMinus = miniumDif(false, magnitud, _COUNTER);
@@ -107,5 +107,5 @@ function convertToRoman(num) {
       return output.concat(_ACCOUTPUT);
     }, [])
     .reverse()
-    .join("");
+    .join('');
 }

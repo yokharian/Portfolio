@@ -10,10 +10,8 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <mat-slider
-          aria-label="units"
-          step="1" min="1" max="10000"
-          discrete><input matSliderThumb (input)="onInputChange($event)">
+        <mat-slider aria-label="units" step="1" min="1" max="10000" discrete
+          ><input matSliderThumb (input)="onInputChange($event)" />
         </mat-slider>
       </mat-card-content>
       <span id="OutputValue">{{ this.calculatedValue }}</span>

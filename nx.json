@@ -51,7 +51,7 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "css"
+      "style": "scss"
     }
   },
   "defaultProject": "portfolio-sofia-escobedo"

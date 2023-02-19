@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../dist/out-tsc",
-    "types": ["@angular/localize","node"]
+    "types": ["@angular/localize", "node"]
   },
   "files": ["./main.ts", "./polyfills.ts"],
   "include": ["./**/*.d.ts"]

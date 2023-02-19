@@ -4935,7 +4935,7 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@nrwl/angular@15.7.2":
+"@nrwl/angular@^15.7.2":
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/@nrwl/angular/-/angular-15.7.2.tgz#be8626307326455a4aed11c842e7d5b331594acc"
   integrity sha512-smnvolRZTAaSfAupOwpPXXqdGbF5l6CY0HGjX0YhBbkg15geWb64M9L3kKoA2xxofb/fQ032u/89hGj5XqUHIQ==

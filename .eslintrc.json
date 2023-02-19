@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "portfolioSofiaEscobedo",
+            "prefix": "app",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "portfolio-sofia-escobedo",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]
