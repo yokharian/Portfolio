@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title> <h3 i18n>Romanian Numbers</h3> </mat-card-title>
-        <mat-card-subtitle i18n>
-          Slide the dot to calculate a Roman numeral! :D
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-slider aria-label="units" step="1" min="1" max="10000" discrete
-          ><input matSliderThumb (input)="onInputChange($event)" />
-        </mat-slider>
-      </mat-card-content>
-      <span id="OutputValue">{{ this.calculatedValue }}</span>
-    </mat-card>
-  </body>
+<!doctype html>
+<html lang="en">
+<body>
+
+<div id="roma-script">
+  <mat-card class="roma-script-card">
+    <mat-card-header>
+      <div mat-card-avatar class="roma-script-header-image"></div>
+      <mat-card-title> <h3 i18n>Romanian Numbers</h3> </mat-card-title>
+      <mat-card-subtitle i18n>
+        Slide the dot to calculate a Roman numeral! :D
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-slider aria-label="units" step="1" min="1" max="10000" discrete
+        ><input matSliderThumb (input)="onInputChange($event)" />
+      </mat-slider>
+    </mat-card-content>
+    <span id="OutputValue">{{ this.calculatedValue }}</span>
+  </mat-card>
+</div>
+
+</body>
 </html>

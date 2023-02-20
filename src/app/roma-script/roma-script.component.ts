@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 /**
  * @title Slider that transforms a number into a Roman numeral in real time.

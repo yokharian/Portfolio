@@ -16,15 +16,25 @@
       rel="stylesheet"
     />
   </head>
-    <body class="mat-typography ">
-    <div class="background">
-      <div class="content" role="main">
-        <app-root></app-root>
-      </div>
+  <body id="background-dots" class="mat-typography mat-app-background">
+    <div class="content background-clouds" role="main">
+
+
+      <app-root></app-root>
+
+
+      <footer>
+        <label i18n>My work is nice?</label> &nbsp;
+        <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+          <label i18n>GitHub Repo</label>
+          <div class="github-star-badge">
+            <img src="assets/images/github-star-badge.svg" alt="">
+            <label i18n>Star</label>
+          </div>
+          <img src="assets/images/arrow.svg" alt="">
+        </a>
+      </footer>
+
     </div>
-      <div class="background-cloud" style="opacity: 0.2; background-position-x: left"></div>
-      <div class="background-cloud" style="opacity: 0.5; background-position-x: right"></div>
-      <div class="background-cloud background-cloud-2" style="opacity: 0.3; background-position-x: center"></div>
-      <div class="background-cloud background-cloud-3" style="opacity: 0.8; background-position-x: center"></div>
   </body>
 </html>
