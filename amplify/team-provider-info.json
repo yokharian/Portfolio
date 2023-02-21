@@ -1,14 +1,35 @@
 {
-  "develop": {
+  "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-portfoliosofiaesc-develop-181228-authRole",
-      "UnauthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-develop-181228-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-develop-181228-authRole",
+      "AuthRoleName": "amplify-portfoliosofiaesc-dev-190739-authRole",
+      "UnauthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-dev-190739-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-dev-190739-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-portfoliosofiaesc-develop-181228-deployment",
-      "UnauthRoleName": "amplify-portfoliosofiaesc-develop-181228-unauthRole",
-      "StackName": "amplify-portfoliosofiaesc-develop-181228",
-      "StackId": "arn:aws:cloudformation:us-east-1:396105036448:stack/amplify-portfoliosofiaesc-develop-181228/6e9457b0-b17c-11ed-9429-0efc57186963",
+      "DeploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
+      "UnauthRoleName": "amplify-portfoliosofiaesc-dev-190739-unauthRole",
+      "StackName": "amplify-portfoliosofiaesc-dev-190739",
+      "StackId": "arn:aws:cloudformation:us-east-1:396105036448:stack/amplify-portfoliosofiaesc-dev-190739/236e3d20-b184-11ed-bc81-0ade16e98ce5",
+      "AmplifyAppId": "d1ls40w92gu67v"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1ls40w92gu67v",
+          "type": "cicd"
+        }
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-portfoliosofiaesc-prod-190954-authRole",
+      "UnauthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-prod-190954-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::396105036448:role/amplify-portfoliosofiaesc-prod-190954-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-portfoliosofiaesc-prod-190954-deployment",
+      "UnauthRoleName": "amplify-portfoliosofiaesc-prod-190954-unauthRole",
+      "StackName": "amplify-portfoliosofiaesc-prod-190954",
+      "StackId": "arn:aws:cloudformation:us-east-1:396105036448:stack/amplify-portfoliosofiaesc-prod-190954/745b18c0-b184-11ed-a14e-0efb642c4925",
       "AmplifyAppId": "d1ls40w92gu67v"
     },
     "categories": {
