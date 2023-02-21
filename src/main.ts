@@ -1,15 +1,17 @@
-/// <reference types="@angular/localize" />
+// / <reference types="@angular/localize" />
+import {Amplify} from 'aws-amplify';
+import {enableProdMode} from '@angular/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
-import { enableProdMode } from '@angular/core';
-import { environment } from './environments/environment';
-
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
+import awsExports from '../src/aws-exports';
+import {environment} from './environments/environment';
+import {AppModule} from './app/app.module';
 
 if (environment.production) {
   enableProdMode();
 }
+
+Amplify.configure({ ...awsExports});
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

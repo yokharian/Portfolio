@@ -1,13 +1,200 @@
 <!doctype html>
 <html lang="en">
 <body>
-    <mat-card class="main-page">
-      <mat-card-content>
+  <mat-card class="main-page">
+    <mat-card-content>
+      <amplify-authenticator
+        [services]="services"
+        variation="modal"
+        initialState="signUp">
 
+
+
+
+        <!-- sign-up-field override -->
+        <ng-template
+          amplifySlot="sign-up-form-fields"
+          let-user="user"
+          let-signOut="signOut"
+        >
+
+          <!-- Re-use default `Authenticator.SignUp.FormFields` -->
+          <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
+
+          <!-- Append gender field to sign up -->
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Macho</mat-radio-button>
+            <mat-radio-button value="2">Hembra</mat-radio-button>
+<!--            <mat-radio-button value="3">Otro</mat-radio-button>-->
+          </mat-radio-group>
+
+<!--          <mat-form-field appearance="outline">-->
+<!--            <mat-label>Outline form field</mat-label>-->
+<!--            <input matInput placeholder="Placeholder">-->
+<!--            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+<!--            <mat-hint>Hint</mat-hint>-->
+<!--          </mat-form-field>-->
+
+        </ng-template>
+
+
+
+
+        <!-- signed-in content override -->
+        <ng-template
+          amplifySlot="authenticated"
+          let-user="user"
+          let-signOut="signOut"
+        >
           <app-roma-script></app-roma-script>
           <p style="text-align: center">Here Goes CV !</p>
-      </mat-card-content>
-    </mat-card>
 
+          <h1>Welcome, {{ user.username }}!</h1>
+          <button (click)="signOut()">Sign Out</button>
+        </ng-template>
+
+
+
+
+
+<!--        <ng-template amplifySlot="header">-->
+<!--          <div style="padding: var(&#45;&#45;amplify-space-large); text-align: center">-->
+<!--            <img-->
+<!--              class="amplify-image"-->
+<!--              alt="Amplify logo"-->
+<!--              src="https://docs.amplify.aws/assets/logo-dark.svg"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </ng-template>-->
+
+        <ng-template amplifySlot="sign-in-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Sign in to your account
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="sign-in-footer">
+          <div style="text-align: center">
+            <button
+              (click)="authenticator.toResetPassword()"
+              class="amplify-button amplify-field-group__control"
+              data-fullwidth="false"
+              data-size="small"
+              data-variation="link"
+              type="button"
+              style="font-weight: normal"
+            >
+              Reset Password
+            </button>
+          </div>
+        </ng-template>
+
+        <ng-template amplifySlot="sign-up-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Create a new account
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="sign-up-footer">
+          <div style="text-align: center">
+            <button
+              (click)="authenticator.toSignIn()"
+              class="amplify-button amplify-field-group__control"
+              data-fullwidth="false"
+              data-size="small"
+              data-variation="link"
+              type="button"
+              style="font-weight: normal"
+            >
+              Back to Sign In
+            </button>
+          </div>
+        </ng-template>
+
+        <ng-template amplifySlot="footer">
+          <div style="padding: var(--amplify-space-large); text-align: center">
+            <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
+              © All Rights Reserved
+            </p>
+          </div>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-sign-up-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Enter Information:
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-sign-up-footer">
+          <div>Footer Information</div>
+        </ng-template>
+
+        <ng-template amplifySlot="setup-totp-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Enter Information:
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="setup-totp-footer">
+          <div>Footer Information</div>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-sign-in-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Enter Information:
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-sign-in-footer">
+          <div>Footer Information</div>
+        </ng-template>
+
+        <ng-template amplifySlot="reset-password-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Enter Information:
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="reset-password-footer">
+          <div>Footer Information</div>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-reset-password-header">
+          <h1
+            class="amplify-heading"
+            style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+          >
+            Enter Information:
+          </h1>
+        </ng-template>
+
+        <ng-template amplifySlot="confirm-reset-password-footer">
+          <div>Footer Information</div>
+        </ng-template>
+
+
+
+
+      </amplify-authenticator>
+    </mat-card-content>
+  </mat-card>
 </body>
 </html>
