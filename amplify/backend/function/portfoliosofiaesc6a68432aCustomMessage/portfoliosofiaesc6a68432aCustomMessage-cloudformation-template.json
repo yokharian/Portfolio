@@ -75,12 +75,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfoliosofiaesc52f74800CustomMessage",
+            "portfoliosofiaesc6a68432aCustomMessage",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfoliosofiaesc52f74800CustomMessage",
+                  "portfoliosofiaesc6a68432aCustomMessage",
                   "-",
                   {
                     "Ref": "env"
@@ -139,12 +139,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfoliosofiaesc52f74800CustomMessage",
+            "portfoliosofiaesc6a68432aCustomMessage",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfoliosofiaesc52f74800CustomMessage",
+                  "portfoliosofiaesc6a68432aCustomMessage",
                   "-",
                   {
                     "Ref": "env"

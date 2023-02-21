@@ -1,9 +1,8 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "portfoliosofiaesc52f74800": {
+    "portfoliosofiaesc6a68432a": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "CreatedSNSRole": "string",
       "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
@@ -14,21 +13,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "portfoliosofiaesc52f74800CustomMessage": {
+    "portfoliosofiaesc6a68432aCustomMessage": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
     },
-    "portfoliosofiaesc52f74800PostConfirmation": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "portfoliosofiaesce5aceab6CustomMessage": {
+    "portfoliosofiaesc6a68432aPostConfirmation": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
