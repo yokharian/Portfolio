@@ -21,7 +21,7 @@
 /**
  * IE11 requires the following for NgClass support on SVG elements
  */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
+import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /**
  * Web Animations `@angular/platform-browser/animations`
@@ -54,6 +54,11 @@
  *
  */
 
+// Internet Explorer 11 (IE11) Support:
+// In order for Angular apps to work on IE11, you need to add the following to your src/polyfills.ts file as well:
+import 'core-js/es/typed-array';
+import 'core-js/es/object';
+
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
@@ -62,4 +67,9 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+//Angular 6+ Support
+// Angular 6+ does not include shims for 'global' or 'process' as provided in previous versions. Add the following to your src/polyfills.ts file to recreate them:
 (window as any).global = window;
+(window as any).process = {
+  env: { DEBUG: undefined },
+};

@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "portfoliosofiaesc52f74800",
+  "functionName": "portfoliosofiaesc52f74800PostConfirmation",
+  "resourceName": "portfoliosofiaesc52f74800PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "portfoliosofiaesc52f74800PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "rookies",
+  "enableCors": false
+}

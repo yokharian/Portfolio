@@ -5,6 +5,8 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
 import {RomaScriptComponent} from './roma-script/roma-script.component';
 
+import {AmplifyAuthenticatorModule} from '@aws-amplify/ui-angular';
+
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider';
@@ -21,6 +23,7 @@ import {MarkdownModule} from 'ngx-markdown';
     MatSliderModule,
     MatCardModule,
     MarkdownModule.forRoot(),
+    AmplifyAuthenticatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
