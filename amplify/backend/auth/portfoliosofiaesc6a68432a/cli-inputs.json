@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "portfoliosofiaesce5aceab6_identitypool_e5aceab6",
+    "identityPoolName": "portfoliosofiaesc6a68432a_identitypool_6a68432a",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "portfoe5aceab6",
-    "userPoolName": "portfoliosofiaesce5aceab6_userpool_e5aceab6",
+    "resourceNameTruncated": "portfo6a68432a",
+    "userPoolName": "portfoliosofiaesc6a68432a_userpool_6a68432a",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -20,14 +20,7 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-      "birthdate",
-      "email",
-      "family_name",
-      "gender",
-      "given_name",
-      "name",
-      "phone_number",
-      "picture"
+      "email"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -38,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "portfoe5aceab6_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "portfo6a68432a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "e5aceab6",
-    "resourceName": "portfoliosofiaesce5aceab6",
+    "sharedId": "6a68432a",
+    "resourceName": "portfoliosofiaesc6a68432a",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "defaultSocial",
     "hostedUI": true,
@@ -56,15 +49,15 @@
         "add-to-group"
       ]
     },
-    "hostedUIDomainName": "portfoliosofiaesce5aceab6-e5aceab6",
+    "hostedUIDomainName": "portfolio-sofia-escobedo",
     "authProvidersUserPool": [
       "Google"
     ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid profile email\",\"AttributeMapping\":{\"birthdate\":\"birthdays\",\"email\":\"email\",\"family_name\":\"family_name\",\"gender\":\"genders\",\"given_name\":\"given_name\",\"name\":\"name\",\"phone_number\":\"phoneNumbers\",\"picture\":\"picture\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://dev.d1ls40w92gu67v.amplifyapp.com/signed-in/\"],\"LogoutURLs\":[\"https://dev.d1ls40w92gu67v.amplifyapp.com/signed-out/\"]}",
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://dev.d1ls40w92gu67v.amplifyapp.com/signedIn/\"],\"LogoutURLs\":[\"https://dev.d1ls40w92gu67v.amplifyapp.com/signedOut/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "verificationBucketName": "portfoliosofiaesce5aceab6verificationbucket",
+    "verificationBucketName": "portfoliosofiaesc6a68432averificationbucket",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true
   }

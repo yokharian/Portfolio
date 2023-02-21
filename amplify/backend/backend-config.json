@@ -1,6 +1,6 @@
 {
   "auth": {
-    "portfoliosofiaesc52f74800": {
+    "portfoliosofiaesc6a68432a": {
       "customAuth": false,
       "dependsOn": [
         {
@@ -9,7 +9,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage",
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage",
           "triggerProvider": "Cognito"
         },
         {
@@ -18,7 +18,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800PostConfirmation",
+          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation",
           "triggerProvider": "Cognito"
         }
       ],
@@ -32,13 +32,7 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "BIRTHDATE",
-          "EMAIL",
-          "FAMILY_NAME",
-          "GENDER",
-          "NAME",
-          "PHONE_NUMBER",
-          "PICTURE"
+          "EMAIL"
         ],
         "socialProviders": [
           "GOOGLE"
@@ -55,17 +49,12 @@
     }
   },
   "function": {
-    "portfoliosofiaesc52f74800CustomMessage": {
+    "portfoliosofiaesc6a68432aCustomMessage": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "portfoliosofiaesc52f74800PostConfirmation": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "portfoliosofiaesce5aceab6CustomMessage": {
+    "portfoliosofiaesc6a68432aPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -78,83 +67,67 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_EMAILMESSAGE": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_EMAILMESSAGE": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_EMAILSUBJECT": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_EMAILSUBJECT": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_REDIRECTURL": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_REDIRECTURL": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_deploymentBucketName": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_s3Key": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_GROUP": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_GROUP": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
+          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_deploymentBucketName": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
+          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_s3Key": {
+    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
-        }
-      ]
-    },
-    "AMPLIFY_function_portfoliosofiaesce5aceab6CustomMessage_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "portfoliosofiaesce5aceab6CustomMessage"
-        }
-      ]
-    },
-    "AMPLIFY_function_portfoliosofiaesce5aceab6CustomMessage_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "portfoliosofiaesce5aceab6CustomMessage"
+          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
         }
       ]
     },

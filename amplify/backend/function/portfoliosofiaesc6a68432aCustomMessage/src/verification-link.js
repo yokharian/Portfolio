@@ -7,7 +7,7 @@ exports.handler = async event => {
     const { codeParameter } = event.request;
     const { region, userName } = event;
     const { clientId } = event.callerContext;
-    const redirectUrl = `${process.env.REDIRECTURL}/?username=${userName}`;
+    const redirectUrl = `${process.env.REDIRECTURL}?username=${userName}`;
     const resourcePrefix = process.env.RESOURCENAME.split('CustomMessage')[0];
 
     const hyphenRegions = [
@@ -31,7 +31,8 @@ exports.handler = async event => {
         clientId,
       }),
     ).toString('base64');
-    const bucketUrl = `http://${resourcePrefix}verificationbucket-${process.env.ENV}.s3-website${separator}${region}.amazonaws.com`;
+
+    const bucketUrl = `https://s3.${region}.amazonaws.com/${resourcePrefix}verificationbucket-${process.env.ENV}/index.html`;
     const url = `${bucketUrl}/?data=${payload}&code=${codeParameter}`;
     const message = `${process.env.EMAILMESSAGE}. \n ${url}`;
     event.response.smsMessage = message;

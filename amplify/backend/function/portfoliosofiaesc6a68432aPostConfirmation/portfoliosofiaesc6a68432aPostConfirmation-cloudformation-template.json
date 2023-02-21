@@ -2,15 +2,7 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.7.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
-    "REDIRECTURL": {
-      "Type": "String",
-      "Default": ""
-    },
-    "EMAILMESSAGE": {
-      "Type": "String",
-      "Default": ""
-    },
-    "EMAILSUBJECT": {
+    "GROUP": {
       "Type": "String",
       "Default": ""
     },
@@ -75,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfoliosofiaesce5aceab6CustomMessage",
+            "portfoliosofiaesc6a68432aPostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfoliosofiaesce5aceab6CustomMessage",
+                  "portfoliosofiaesc6a68432aPostConfirmation",
                   "-",
                   {
                     "Ref": "env"
@@ -101,17 +93,8 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "REDIRECTURL": {
-              "Ref": "REDIRECTURL"
-            },
-            "EMAILSUBJECT": {
-              "Ref": "EMAILSUBJECT"
-            },
-            "EMAILMESSAGE": {
-              "Ref": "EMAILMESSAGE"
-            },
-            "RESOURCENAME": {
-              "Ref": "resourceName"
+            "GROUP": {
+              "Ref": "GROUP"
             }
           }
         },
@@ -139,12 +122,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfoliosofiaesce5aceab6CustomMessage",
+            "portfoliosofiaesc6a68432aPostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfoliosofiaesce5aceab6CustomMessage",
+                  "portfoliosofiaesc6a68432aPostConfirmation",
                   "-",
                   {
                     "Ref": "env"

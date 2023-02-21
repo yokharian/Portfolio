@@ -20,24 +20,20 @@
         }
       },
       "auth": {
-        "portfoliosofiaesc52f74800": {}
+        "portfoliosofiaesc6a68432a": {}
       },
       "function": {
-        "portfoliosofiaesc52f74800CustomMessage": {
-          "REDIRECTURL": "https://dev.d1ls40w92gu67v.amplifyapp.com/registered/",
-          "EMAILSUBJECT": "CONFIRM YOR ACCOUNT",
-          "EMAILMESSAGE": "click this link ",
+        "portfoliosofiaesc6a68432aCustomMessage": {
+          "REDIRECTURL": "https://dev.d1ls40w92gu67v.amplifyapp.com/confirmed/",
+          "EMAILSUBJECT": "VERIFY YOUR EMAIL",
+          "EMAILMESSAGE": "CLICK TO VERIFY YOUR EMAIL ",
           "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
-          "s3Key": "amplify-builds/portfoliosofiaesc52f74800CustomMessage-68733459394a50575671-build.zip"
+          "s3Key": "amplify-builds/portfoliosofiaesc6a68432aCustomMessage-57496469516837712f55-build.zip"
         },
-        "portfoliosofiaesc52f74800PostConfirmation": {
+        "portfoliosofiaesc6a68432aPostConfirmation": {
           "GROUP": "rookies",
           "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
-          "s3Key": "amplify-builds/portfoliosofiaesc52f74800PostConfirmation-69316a317967336d5076-build.zip"
-        },
-        "portfoliosofiaesce5aceab6CustomMessage": {
-          "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
-          "s3Key": "amplify-builds/portfoliosofiaesce5aceab6CustomMessage-32526b564a6370615049-build.zip"
+          "s3Key": "amplify-builds/portfoliosofiaesc6a68432aPostConfirmation-4a36716d4e455a515938-build.zip"
         }
       }
     }

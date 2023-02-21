@@ -3,9 +3,9 @@
   "modules": [
     "verification-link"
   ],
-  "parentResource": "portfoliosofiaesce5aceab6",
-  "functionName": "portfoliosofiaesce5aceab6CustomMessage",
-  "resourceName": "portfoliosofiaesce5aceab6CustomMessage",
+  "parentResource": "portfoliosofiaesc6a68432a",
+  "functionName": "portfoliosofiaesc6a68432aCustomMessage",
+  "resourceName": "portfoliosofiaesc6a68432aCustomMessage",
   "parentStack": "auth",
   "triggerEnvs": [
     {
@@ -16,11 +16,11 @@
   "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
   "triggerTemplate": "CustomMessage.json.ejs",
   "triggerEventPath": "CustomMessage.event.json",
-  "roleName": "portfoliosofiaesce5aceab6CustomMessage",
+  "roleName": "portfoliosofiaesc6a68432aCustomMessage",
   "skipEdit": true,
-  "REDIRECTURL": "https://dev.d1ls40w92gu67v.amplifyapp.com/registered",
-  "EMAILSUBJECT": "CONFIRM YOUR ACCOUNT",
-  "EMAILMESSAGE": "hello confirm your account",
+  "REDIRECTURL": "https://dev.d1ls40w92gu67v.amplifyapp.com/confirmed/",
+  "EMAILSUBJECT": "VERIFY YOUR EMAIL",
+  "EMAILMESSAGE": "CLICK TO VERIFY YOUR EMAIL ",
   "RESOURCENAME": "resourceName",
   "enableCors": false
 }
