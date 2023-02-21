@@ -9,13 +9,35 @@
       "UnauthRoleName": "amplify-portfoliosofiaesc-dev-190739-unauthRole",
       "StackName": "amplify-portfoliosofiaesc-dev-190739",
       "StackId": "arn:aws:cloudformation:us-east-1:396105036448:stack/amplify-portfoliosofiaesc-dev-190739/236e3d20-b184-11ed-bc81-0ade16e98ce5",
-      "AmplifyAppId": "d1ls40w92gu67v"
+      "AmplifyAppId": "d1ls40w92gu67v",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-portfoliosofiaesc-dev-190739-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "hosting": {
         "amplifyhosting": {
           "appId": "d1ls40w92gu67v",
           "type": "cicd"
+        }
+      },
+      "auth": {
+        "portfoliosofiaesc52f74800": {}
+      },
+      "function": {
+        "portfoliosofiaesc52f74800CustomMessage": {
+          "REDIRECTURL": "https://dev.d1ls40w92gu67v.amplifyapp.com/registered/",
+          "EMAILSUBJECT": "CONFIRM YOR ACCOUNT",
+          "EMAILMESSAGE": "click this link ",
+          "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
+          "s3Key": "amplify-builds/portfoliosofiaesc52f74800CustomMessage-68733459394a50575671-build.zip"
+        },
+        "portfoliosofiaesc52f74800PostConfirmation": {
+          "GROUP": "rookies",
+          "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
+          "s3Key": "amplify-builds/portfoliosofiaesc52f74800PostConfirmation-69316a317967336d5076-build.zip"
+        },
+        "portfoliosofiaesce5aceab6CustomMessage": {
+          "deploymentBucketName": "amplify-portfoliosofiaesc-dev-190739-deployment",
+          "s3Key": "amplify-builds/portfoliosofiaesce5aceab6CustomMessage-32526b564a6370615049-build.zip"
         }
       }
     }

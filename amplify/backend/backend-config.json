@@ -1,4 +1,76 @@
 {
+  "auth": {
+    "portfoliosofiaesc52f74800": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "BIRTHDATE",
+          "EMAIL",
+          "FAMILY_NAME",
+          "GENDER",
+          "NAME",
+          "PHONE_NUMBER",
+          "PICTURE"
+        ],
+        "socialProviders": [
+          "GOOGLE"
+        ],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "portfoliosofiaesc52f74800CustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "portfoliosofiaesc52f74800PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "portfoliosofiaesce5aceab6CustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",
@@ -6,6 +78,86 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_EMAILMESSAGE": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_EMAILSUBJECT": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_REDIRECTURL": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800CustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesc52f74800PostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesc52f74800PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesce5aceab6CustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesce5aceab6CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_portfoliosofiaesce5aceab6CustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "portfoliosofiaesce5aceab6CustomMessage"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
