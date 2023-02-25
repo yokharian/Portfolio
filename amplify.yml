@@ -1,4 +1,15 @@
 version: 1
+backend:
+  phases:
+    preBuild:
+      commands:
+        - yum install jq -y
+        - export AMPLIFY_GOOGLE_CLIENT_ID=$(jq -r -j '.AMPLIFY_GOOGLE_CLIENT_ID' <<< "$secrets")
+        - export AMPLIFY_GOOGLE_CLIENT_SECRET=$(jq -r -j '.AMPLIFY_GOOGLE_CLIENT_SECRET' <<< "$secrets")
+#    build:
+#      commands:
+#        # https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html#frontend-with-backend
+#        - amplifyPush --simple
 frontend:
   phases:
     preBuild:
@@ -6,6 +17,7 @@ frontend:
         - yarn install
     build:
       commands:
+        - amplify pull
         - yarn run build
   artifacts:
     baseDirectory: /dist/
