@@ -64,7 +64,6 @@ amplify/team-provider-info.json
 **/mutations.graphql
 **/queries.graphql
 **/subscriptions.graphql
-!amplify/backend/function/xdchallengeappSyncOperations/opt/*.ts
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -85,3 +84,4 @@ amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
 #amplify-do-not-edit-end
+!/amplify/team-provider-info.json

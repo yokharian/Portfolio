@@ -1,0 +1,132 @@
+enum Country { Afghanistan Albania Algeria Andorra Angola Antigua_and_Barbuda Argentina Armenia Australia Austria Azerbaijan Bahamas Bahrain Bangladesh Barbados Belarus Belgium Belize Benin Bhutan Bolivia Bosnia_and_Herzegovina Botswana Brazil Brunei Bulgaria Burkina_Faso Burundi COTE_DIVOIRE Cabo_Verde Cambodia Cameroon Canada Central_African_Republic Chad Chile China Colombia Comoros Congo_CONGO_BRAZZAVILLE Costa_Rica Croatia Cuba Cyprus Czechia_CZECH_REPUBLIC Democratic_Republic_of_the_Congo Denmark Djibouti Dominica Dominican_Republic Ecuador Egypt El_Salvador Equatorial_Guinea Eritrea Estonia Eswatini_FMR_SWAZILAND Ethiopia Fiji Finland France Gabon Gambia Georgia Germany Ghana Greece Grenada Guatemala Guinea Guinea_Bissau Guyana Haiti Holy_See Honduras Hungary Iceland India Indonesia Iran Iraq Ireland Israel Italy Jamaica Japan Jordan Kazakhstan Kenya Kiribati Kuwait Kyrgyzstan Laos Latvia Lebanon Lesotho Liberia Libya Liechtenstein Lithuania Luxembourg Madagascar Malawi Malaysia Maldives Mali Malta Marshall_Islands Mauritania Mauritius Mexico Micronesia Moldova Monaco Mongolia Montenegro Morocco Mozambique Myanmar_FORMERLY_BURMA Namibia Nauru Nepal Netherlands New_Zealand Nicaragua Niger Nigeria North_Korea North_Macedonia Norway Oman Pakistan Palau Palestine_State Panama Papua_New_Guinea Paraguay Peru Philippines Poland Portugal Qatar Romania Russia Rwanda Saint_Kitts_and_Nevis Saint_Lucia Saint_Vincent_and_the_Grenadines Samoa San_Marino Sao_Tome_and_Principe Saudi_Arabia Senegal Serbia Seychelles Sierra_Leone Singapore Slovakia Slovenia Solomon_Islands Somalia South_Africa South_Korea South_Sudan Spain Sri_Lanka Sudan Suriname Sweden Switzerland Syria Tajikistan Tanzania Thailand Timor_Leste Togo Tonga Trinidad_and_Tobago Tunisia Turkey Turkmenistan Tuvalu Uganda Ukraine United_Arab_Emirates United_Kingdom United_States_of_America Uruguay Uzbekistan Vanuatu Venezuela Vietnam Yemen Zambia Zimbabwe }
+enum Language { Mandarin, Spanish, English, Hindi, Arabic, Portuguese, Bengali, Russian, Japanese, Punjabi, German, Javanese, Wu, Malay, Korean, Telugu, Vietnamese, French, Marathi, Tamil, Urdu, Persian, Turkish, Cantonese, Italian, Thai, Gujarati, Jin, MinNan, Polish, Pashto, Kannada, Malayalam, Sundanese, Xiang, Hausa, Burmese, Oriya, Hakka, Ukrainian, Bhojpuri, Tagalog, Yoruba, Maithili, Sindhi, Swahili, Uzbek, Amharic, Fula, Igbo, Oromo, Romanian, Azerbaijani, Awadhi, Gan, Cebuano, Dutch, Kurdish, Serbo, Malagasy, Nepali, Saraiki, Chittagonian, Khmer, Sinhalese, Zhuang, Assamese, Madurese, Somali, Haryanvi, Magahi, Marwari, Hungarian, Chewa, Chhattisgarhi, Greek, Akan, Deccan, Kazakh, MinBei, Sylheti, Zulu, Czech, Kinyarwanda, Dhundhari, Haitian, MinDong, Ilokano, Quechua, Kirundi, Swedish, Hmong, Shona, Hiligaynon, Uyghur, Balochi, Belarusian, Mossi, Xhosa, Konkani }
+
+type User @model @auth( rules: [
+  {allow: private, operations: [read, create], provider: iam},
+  {allow: groups,  operations: [read, update], groups: ["Admin"]}
+  {allow: owner,   operations: [read, update]},
+  {allow: private, operations: [read]}
+]) {
+  email: String! @primaryKey
+  owner: String @index @auth(rules: [
+    {allow: private, operations: [read, create], provider: iam},
+    {allow: groups, operations: [read] groups: ["Admin"]},
+    {allow: owner,  operations: [read]},
+    {allow: private, operations: [read]}
+  ])
+  identityId: String @index @auth(rules: [
+    {allow: private, operations: [read, create], provider: iam},
+    {allow: groups, operations: [read] groups: ["Admin"]},
+    {allow: owner,  operations: [read]},
+    {allow: private, operations: [read]}
+  ])
+  nickname: String! @index
+  country: Country @index
+  gender: String!
+  birthdate: AWSDate!
+  lastConnection: AWSTimestamp
+  #  PrivateChannels: [PrivateChannel] @manyToMany(relationName: "PrivateChannelUser")
+  #      @auth(rules: [{allow: owner,  operations: [read]},
+  #                    {allow: private, operations: [create]},
+  #                    {allow: groups, operations: [read, update], groups: ["Admin"]}
+  #                    {allow: private, provider: iam}])
+  Channels: [Channel] @manyToMany(relationName: "ChannelUserRelationship")
+}
+
+
+
+
+type Channel @model @auth( rules: [
+  {allow: groups, groups: ["Admin"]},
+  {allow: owner,   operations: [read, update]},
+  {allow: private,  operations: [read]}
+]) {
+  id: ID! @primaryKey
+  title: String!
+  description: String!
+  language: Language @default(value: "Spanish") @index
+  channelPicture: AWSURL! @default(value:"https://escobedo.mx/defaultChannelPicture.png")
+  Members: [User] @manyToMany(relationName: "ChannelUserRelationship")
+  owner: String @index @auth(rules: [
+    {allow: groups, operations: [read] groups: ["Admin"]},
+    {allow: owner,  operations: [read]},
+    {allow: private, operations: [read]}
+  ])
+  owner_USER: User! @hasOne @auth(rules: [
+    {allow: groups, operations: [read] groups: ["Admin"]},
+    {allow: owner,  operations: [read]},
+    {allow: private, operations: [read]}
+  ])
+}
+
+
+
+
+# TODO ADD CUSTOM LAMBDA AUTHORIZER TO CHECK IF "PRIVATE" USER CAN POST VIDEOS TO THE CHANNEL
+type VideoQueue @model @auth( rules: [
+  {allow: groups, groups: ["Admin","Moderator"]}
+  {allow: owner},
+  {allow: private,  operations: [create, read]}
+]) {
+  videoId: ID!
+  videoTitle: String!
+  videoDescription: String!
+
+  start: AWSTimestamp!
+  durationInSeconds: Float!
+  startInSeconds: Float!
+  endInSeconds: Float!
+
+  userDescription: String!
+  channel: Channel! @hasOne
+  channel_STRING: String! @primaryKey(sortKeyFields: ["start", "updatedAt", "createdAt"])
+  owner: String! @auth(rules: [
+    {allow: owner,  operations: [read]},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  owner_USER: User! @hasOne @auth(rules: [
+    {allow: owner},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  owner_STRING: String! @index @auth(rules: [
+    {allow: owner},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+
+
+
+# TODO ADD CUSTOM LAMBDA AUTHORIZER TO CHECK IF "PRIVATE" USER CAN POST MESSAGES TO THE CHANNEL
+type Message @model @auth( rules: [
+  {allow: groups, groups: ["Admin","Moderator"]}
+  {allow: owner},
+  {allow: private,  operations: [create, read]}
+]) {
+  Content: String!
+
+  channel: Channel! @hasOne
+  channel_STRING: String! @primaryKey(sortKeyFields: ["updatedAt", "createdAt"])
+  owner: String! @auth(rules: [
+    {allow: owner,  operations: [read]},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  owner_USER: User! @hasOne @auth(rules: [
+    {allow: owner,  operations: [read]},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  owner_STRING: String! @index @auth(rules: [
+    {allow: owner,  operations: [read]},
+    {allow: private,  operations: [create, read]},
+    {allow: groups, groups: ["Admin", "Moderator"]}
+  ])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}

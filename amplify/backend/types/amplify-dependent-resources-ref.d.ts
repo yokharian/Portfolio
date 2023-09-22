@@ -1,26 +1,31 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "portfolio": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
+    }
+  },
   "auth": {
-    "portfoliosofiaesc6a68432a": {
+    "escobedoAuth": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
+      "GoogleWebClient": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
+    },
+    "userPoolGroups": {
+      "AdminGroupRole": "string",
+      "ModeratorGroupRole": "string",
+      "RookieGroupRole": "string",
+      "VipGroupRole": "string"
     }
   },
   "function": {
-    "portfoliosofiaesc6a68432aCustomMessage": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "portfoliosofiaesc6a68432aPostConfirmation": {
+    "escobedoAuthCustomMessage": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

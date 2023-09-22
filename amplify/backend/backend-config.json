@@ -1,6 +1,44 @@
 {
+  "api": {
+    "portfolio": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "escobedoAuth"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "apiKeyConfig": {
+                "apiKeyExpirationDate": "2024-09-16T21:37:39.123Z",
+                "apiKeyExpirationDays": 365,
+                "description": "GENERAL_API_KEY"
+              },
+              "authenticationType": "API_KEY"
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authescobedoAuth"
+            }
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
   "auth": {
-    "portfoliosofiaesc6a68432a": {
+    "escobedoAuth": {
       "customAuth": false,
       "dependsOn": [
         {
@@ -9,16 +47,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage",
-          "triggerProvider": "Cognito"
-        },
-        {
-          "attributes": [
-            "Arn",
-            "Name"
-          ],
-          "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation",
+          "resourceName": "escobedoAuthCustomMessage",
           "triggerProvider": "Cognito"
         }
       ],
@@ -32,11 +61,14 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL"
+          "BIRTHDATE",
+          "EMAIL",
+          "GENDER",
+          "NAME",
+          "NICKNAME",
+          "PICTURE"
         ],
-        "socialProviders": [
-          "GOOGLE"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [
           "EMAIL"
         ],
@@ -46,15 +78,26 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "escobedoAuth"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
     }
   },
   "function": {
-    "portfoliosofiaesc6a68432aCustomMessage": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "portfoliosofiaesc6a68432aPostConfirmation": {
+    "escobedoAuthCustomMessage": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -62,72 +105,57 @@
   },
   "hosting": {
     "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
       "service": "amplifyhosting",
-      "type": "cicd"
+      "type": "manual"
     }
   },
   "parameters": {
-    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_EMAILMESSAGE": {
+    "AMPLIFY_auth_escobedoAuth_googleClientId": {
       "usedBy": [
         {
-          "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
+          "category": "auth",
+          "resourceName": "escobedoAuth"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_EMAILSUBJECT": {
+    "AMPLIFY_function_escobedoAuthCustomMessage_EMAILMESSAGE": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
+          "resourceName": "escobedoAuthCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_REDIRECTURL": {
+    "AMPLIFY_function_escobedoAuthCustomMessage_EMAILSUBJECT": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
+          "resourceName": "escobedoAuthCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_deploymentBucketName": {
+    "AMPLIFY_function_escobedoAuthCustomMessage_REDIRECTURL": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
+          "resourceName": "escobedoAuthCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aCustomMessage_s3Key": {
+    "AMPLIFY_function_escobedoAuthCustomMessage_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aCustomMessage"
+          "resourceName": "escobedoAuthCustomMessage"
         }
       ]
     },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_GROUP": {
+    "AMPLIFY_function_escobedoAuthCustomMessage_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
-        }
-      ]
-    },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
-        }
-      ]
-    },
-    "AMPLIFY_function_portfoliosofiaesc6a68432aPostConfirmation_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "portfoliosofiaesc6a68432aPostConfirmation"
+          "resourceName": "escobedoAuthCustomMessage"
         }
       ]
     },
