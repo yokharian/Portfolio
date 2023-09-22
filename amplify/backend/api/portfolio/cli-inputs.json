@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "portfolio",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authescobedoAuth"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 365,
+        "apiKeyExpirationDate": "2024-09-16T21:37:39.123Z",
+        "keyDescription": "GENERAL_API_KEY"
+      },
+      {
+        "mode": "AWS_IAM"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "groupName": "Admin",
+    "precedence": 1
+  },
+  {
+    "groupName": "Moderator",
+    "precedence": 2
+  },
+  {
+    "groupName": "Vip",
+    "precedence": 3
+  },
+  {
+    "groupName": "Rookie",
+    "precedence": 4
+  }
+]
