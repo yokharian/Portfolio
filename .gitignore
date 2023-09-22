@@ -1,15 +1,19 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-dist
-tmp
+# Compiled output
+**/dist
+/tmp
 /out-tsc
+/bazel-out
+**/build/
 
-# dependencies
-node_modules
+# Node
+**/node_modules
+npm-debug.log
+yarn-error.log
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -17,28 +21,50 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
-# misc
-/.sass-cache
+# Miscellaneous
+/.angular/cache
+.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
 
-.angular
+# Amplify
+amplify/team-provider-info.json
+**/aws-exports.js
+**/awsconfiguration.json
+.secret-*
+**.sample
+
+# GraphQL
+**/API.service.ts
+**/mutations.ts
+**/queries.ts
+**/subscriptions.ts
+
+**/API.service.js
+**/mutations.js
+**/queries.js
+**/subscriptions.js
+**/schema.json
+
+**/mutations.graphql
+**/queries.graphql
+**/subscriptions.graphql
+!amplify/backend/function/xdchallengeappSyncOperations/opt/*.ts
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -58,6 +84,4 @@ amplifyconfiguration.dart
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
-.secret-*
-**.sample
 #amplify-do-not-edit-end
