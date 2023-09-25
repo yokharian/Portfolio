@@ -5,9 +5,8 @@
   <mat-card-content>
     <amplify-authenticator
       [services]="services"
-      initialState="signUp"
+      initialState="signIn"
       variation="modal">
-
 
       <!-- sign-up-field override -->
       <ng-template
@@ -20,15 +19,11 @@
         <!-- Re-use default `Authenticator.SignUp.FormFields` -->
         <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
 
-        <!-- Append & require Terms & Conditions field to sign up -->
-        <amplify-text-field
-          [hasError]="!!validationErrors.gender"
-          autocomplete="false"
-          label="Gender"
-          name="gender"
-          placeholder="What is your gender?"
-          type="text">
-        </amplify-text-field>
+        <mat-radio-group label="Gender" name="gender">
+          <mat-radio-button value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
+          <mat-radio-button value="Other">Other</mat-radio-button>
+        </mat-radio-group>
 
       </ng-template>
 
