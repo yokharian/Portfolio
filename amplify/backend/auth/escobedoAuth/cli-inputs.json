@@ -24,8 +24,7 @@
       "email",
       "gender",
       "name",
-      "nickname",
-      "picture"
+      "nickname"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -37,8 +36,7 @@
       "email",
       "gender",
       "name",
-      "nickname",
-      "picture"
+      "nickname"
     ],
     "userpoolClientReadAttributes": [
       "birthdate",
@@ -46,7 +44,6 @@
       "gender",
       "name",
       "nickname",
-      "picture",
       "email_verified"
     ],
     "userpoolClientLambdaRole": "escobe4aa07e54_userpoolclient_lambda_role",
