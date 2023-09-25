@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { Amplify, Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 import awsExports from '../aws-exports';
 
@@ -19,20 +19,7 @@ export class AppComponent {
   @ViewChild('main') main: ElementRef | undefined;
   @ViewChild('footer') footer: ElementRef | undefined;
 
-  services: any = {
-    async handleSignUp(formData: Record<string, any>) {
-      const { username, password, attributes } = formData;
-      attributes.picture = 'default-profile-picture.jpg';
-      return Auth.signUp({
-        username,
-        password,
-        attributes,
-        autoSignIn: {
-          enabled: true,
-        },
-      });
-    },
-  };
+  services: any = {};
 
   constructor(
     private titleService: Title,
@@ -40,5 +27,15 @@ export class AppComponent {
   ) {
     Amplify.configure(awsExports);
     this.titleService.setTitle($localize`Portfolio`);
+    this.services['validateCustomSignUp'] = this.validateCustomSignUp;
+  }
+
+  async validateCustomSignUp(formData: Record<string, string>) {
+    if (!formData['gender']) {
+      return {
+        acknowledgement: 'You must choose a gender',
+      };
+    }
+    return null;
   }
 }
