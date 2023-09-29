@@ -33,7 +33,7 @@ export class AppComponent {
   async validateCustomSignUp(formData: Record<string, string>) {
     if (!formData['gender']) {
       return {
-        acknowledgement: 'You must choose a gender',
+        acknowledgement: $localize`You must choose a gender`,
       };
     }
     return null;
