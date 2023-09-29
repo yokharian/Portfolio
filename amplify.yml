@@ -14,11 +14,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        - yarn install
+        - npm install
     build:
       commands:
         - amplify pull
-        - yarn run build
+        - npm run build
   artifacts:
     baseDirectory: /dist/
     files:
