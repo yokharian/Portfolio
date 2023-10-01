@@ -1,4 +1,10 @@
 {
   "modules": "verification-link",
-  "resourceName": "escobedoAuthCustomMessage"
+  "resourceName": "escobedoAuthCustomMessage",
+  "s3BucketName": {
+    "Fn::GetAtt": [
+      "authescobedoAuth",
+      "Outputs.bucketName"
+    ]
+  }
 }

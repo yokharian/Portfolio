@@ -51,6 +51,9 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "s3BucketName": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -80,7 +83,7 @@
               "Fn::Join": [
                 "",
                 [
-                  "escobedoAuthCustomMessage",
+                  "escobedo-auth-custom-message",
                   "-",
                   {
                     "Ref": "env"
@@ -112,6 +115,9 @@
             },
             "RESOURCENAME": {
               "Ref": "resourceName"
+            },
+            "S3BUCKETNAME": {
+              "Ref": "s3BucketName"
             }
           }
         },

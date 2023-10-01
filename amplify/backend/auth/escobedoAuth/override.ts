@@ -7,11 +7,12 @@ export function override(
   resources: AmplifyAuthCognitoStackTemplate,
   amplifyProjectInfo: AmplifyProjectInfo
 ) {
+  console.log('[-] OVERRIDE.ts applying auth bucket retain removal policy');
   const bucket = resources.customMessageConfirmationBucket;
-  console.log('[-] OVERRIDE.ts making auth bucket public accesible');
   // @ts-ignore
-  bucket.applyRemovalPolicy('destroy');
+  bucket.applyRemovalPolicy('retain');
   bucket.publicAccessBlockConfiguration = { blockPublicAcls: false };
+  console.log('[-] OVERRIDE.ts making auth bucket uniquely named');
   // @ts-ignore
   bucket.bucketName = {
     'Fn::Join': [
@@ -24,22 +25,12 @@ export function override(
           Ref: 'env',
         },
         {
-          'Fn::Select': [
-            3,
-            {
-              'Fn::Split': [
-                '-',
-                {
-                  Ref: 'AWS::StackName',
-                },
-              ],
-            },
-          ],
+          Ref: 'AWS::AccountId',
         },
       ],
     ],
   };
-
+  console.log('[-] OVERRIDE.ts making auth bucket public accesible');
   resources.addCfnResource(
     {
       type: 'AWS::S3::BucketPolicy',
@@ -67,5 +58,11 @@ export function override(
       },
     },
     'MyS3BucketPolicy'
+  );
+  resources.addCfnOutput(
+    {
+      value: bucket.bucketName,
+    },
+    'bucketName'
   );
 }

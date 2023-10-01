@@ -1,5 +1,5 @@
 /**
- * @type {import('@types/aws-lambda').CustomMessageTriggerHandler}
+ * @type {import("@types/aws-lambda").CustomMessageTriggerHandler}
  */
 exports.handler = async (event) => {
   // Define the URL that you want the user to be directed to after verification is complete
@@ -7,21 +7,8 @@ exports.handler = async (event) => {
     const { codeParameter } = event.request;
     const { region, userName } = event;
     const { clientId } = event.callerContext;
+    const s3BucketName = process.env.S3BUCKETNAME;
     const redirectUrl = `${process.env.REDIRECTURL}?username=${userName}`;
-    const resourcePrefix = process.env.RESOURCENAME.split('CustomMessage')[0];
-
-    const hyphenRegions = [
-      'us-east-1',
-      'us-west-1',
-      'us-west-2',
-      'ap-southeast-1',
-      'ap-southeast-2',
-      'ap-northeast-1',
-      'eu-west-1',
-      'sa-east-1',
-    ];
-
-    const separator = hyphenRegions.includes(region) ? '-' : '.';
 
     const payload = Buffer.from(
       JSON.stringify({
@@ -31,13 +18,14 @@ exports.handler = async (event) => {
         clientId,
       })
     ).toString('base64');
-    const bucketUrl = `https://s3.${region}.amazonaws.com/${resourcePrefix}verificationbucket-${process.env.ENV}/index.html`;
-    const url = `${bucketUrl}/?data=${payload}&code=${codeParameter}`;
-    const message = `${process.env.EMAILMESSAGE}. \n ${url}`;
-    event.response.smsMessage = message;
+    const bucketUrl = `https://s3.${region}.amazonaws.com/${s3BucketName}/index.html`;
+    const url = `${bucketUrl}?data=${payload}&code=${codeParameter}`;
+
+    const message = `<p><a href="${url}"><strong>CLICK HERE</strong></a> to confirm your escobedo.mx account</p>`;
     event.response.emailSubject = process.env.EMAILSUBJECT;
     event.response.emailMessage = message;
-    console.log('event.response', event.response);
+
+    event.response.smsMessage = `Your verification code to verify the escobedo.mx account is ${codeParameter}`;
   }
 
   return event;
