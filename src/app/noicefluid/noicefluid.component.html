@@ -1,40 +1,6 @@
-<amplify-authenticator
-  [services]="services"
-  initialState="signIn"
-  variation="modal">
+<mat-card class="main-page">
+  <mat-card-content>
+    <h1>welcome</h1>
 
-  <!-- sign-up-field override -->
-  <ng-template amplifySlot="sign-up-form-fields">
-    <!-- Re-use default `Authenticator.SignUp.FormFields` -->
-    <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
-
-    <mat-radio-group label="Gender" name="gender">
-      <mat-radio-button value="Male">Male</mat-radio-button>
-      <mat-radio-button value="Female">Female</mat-radio-button>
-      <mat-radio-button value="Other">Other</mat-radio-button>
-    </mat-radio-group>
-
-  </ng-template>
-
-
-  <!-- signed-in content override -->
-  <ng-template amplifySlot="authenticated" let-signOut="signOut" let-user="user">
-
-
-    <mat-card class="main-page">
-      <mat-card-content>
-
-
-        <h1>Welcome, {{ user.username }}!</h1>
-        <button (click)="signOut()">Sign Out</button>
-        
-
-      </mat-card-content>
-
-    </mat-card>
-
-
-  </ng-template>
-
-
-</amplify-authenticator>
+  </mat-card-content>
+</mat-card>

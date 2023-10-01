@@ -1,20 +1,53 @@
 <p></p>
-<mat-toolbar color="primary">
-  <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button aria-label="Example icon-button with heart icon" class="example-icon favorite-icon" mat-icon-button>
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button aria-label="Example icon-button with share icon" class="example-icon" mat-icon-button>
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
-<!--<h1>{{title}}</h1>-->
-<!--<nav>-->
-<!--  <a routerLink="/index">index</a>-->
-<!--  <a routerLink="/noicefluid">noicefluid</a>-->
-<!--</nav>-->
-<router-outlet></router-outlet>
+
+<ng-template [ngIf]="!isProtectedUrl()">
+  <mat-toolbar color="primary">
+    <span>{{titleService.getTitle()}}</span>
+    <span class="spacer"></span>
+
+    <button aria-label="Example icon-button with heart icon" class="favorite-icon" mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
+
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</ng-template>
+
+
+<ng-template [ngIf]="isProtectedUrl()">
+  <amplify-authenticator
+    [services]="services"
+    initialState="signIn"
+    variation="modal">
+
+    <!-- sign-up-field override -->
+    <ng-template amplifySlot="sign-up-form-fields">
+      <!-- Re-use default `Authenticator.SignUp.FormFields` -->
+      <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
+      <mat-radio-group label="Gender" name="gender">
+        <mat-radio-button value="Male">Male</mat-radio-button>
+        <mat-radio-button value="Female">Female</mat-radio-button>
+        <mat-radio-button value="Other">Other</mat-radio-button>
+      </mat-radio-group>
+    </ng-template>
+
+
+    <!-- signed-in content override -->
+    <ng-template amplifySlot="authenticated" let-signOut="signOut" let-user="user">
+      <mat-toolbar color="primary">
+        <span>Welcome {{capitalize(user.attributes.name)}} !</span>
+        <span class="spacer"></span>
+
+        <button aria-label="configs" class="favorite-icon" mat-icon-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button (click)="signOut()" aria-label="sign out" mat-icon-button>
+          <mat-icon>logout</mat-icon>
+        </button>
+
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </ng-template>
+
+  </amplify-authenticator>
+</ng-template>
