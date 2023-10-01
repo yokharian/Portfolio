@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/yokharian/portfolio)
+
+1. configure [redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html) using the file [rewrites_and_redirects.json](rewrites_and_redirects.json) as a guide.
+2. upload s3 files for the redirect link website, read the [readme.md](amplify%2Fbackend%2Fauth%2FescobedoAuth%2Freadme.md) file
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
