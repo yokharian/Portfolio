@@ -17,6 +17,41 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@aws-crypto/crc32",
+              "@aws-crypto/sha256-browser",
+              "@aws-crypto/sha256-js",
+              "crypto-js/sha256",
+              "axios",
+              "buffer",
+              "classnames",
+              "cookie",
+              "camelcase-keys",
+              "crypto-js/core",
+              "crypto-js/enc-base64",
+              "crypto-js/hmac-sha256",
+              "crypto-js/lib-typedarrays",
+              "fast-xml-parser",
+              "isomorphic-unfetch",
+              "js-cookie",
+              "lodash",
+              "lodash/get",
+              "lodash/isEmpty",
+              "lodash/isEqual",
+              "qrcode",
+              "style-dictionary/lib/utils/deepExtend",
+              "style-dictionary/lib/utils/deepExtend.js",
+              "style-dictionary/lib/utils/flattenProperties",
+              "style-dictionary/lib/utils/flattenProperties.js",
+              "style-dictionary/lib/utils/references/usesReference",
+              "style-dictionary/lib/utils/references/usesReference.js",
+              "ulid",
+              "url",
+              "uuid",
+              "xstate/lib/actions",
+              "xstate/lib/waitFor.js",
+              "zen-observable"
+            ],
             "outputPath": "dist/portfolio",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -111,3 +146,6 @@
     }
   }
 }
+
+
+
