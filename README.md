@@ -4,8 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/yokharian/portfolio)
 
-1. configure [redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html) using the file [rewrites_and_redirects.json](rewrites_and_redirects.json) as a guide.
-2. upload s3 files for the redirect link website, read the [readme.md](amplify%2Fbackend%2Fauth%2FescobedoAuth%2Freadme.md) file
+1. ( if using amplify hosting ) configure [redirects](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html) using the file [rewrites_and_redirects.json](rewrites_and_redirects.json) as a guide.
+2. upload s3 files for the redirect link website, read the [amplify/backend/auth/escobedoAuth/readme.md](amplify%2Fbackend%2Fauth%2FescobedoAuth%2Freadme.md) file
+3. configure route53 & ACM and set the acmCertificateArn in the file [amplify/backend/hosting/S3AndCloudFront/parameters.json](amplify%2Fbackend%2Fhosting%2FS3AndCloudFront%2Fparameters.json)
 
 ## Development server
 

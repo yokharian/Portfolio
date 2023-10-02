@@ -7,6 +7,12 @@
     },
     "bucketName": {
       "Type": "String"
+    },
+    "aliases": {
+      "Type": "String"
+    },
+    "acmCertificateArn": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -16,6 +22,14 @@
           "Ref": "env"
         },
         "NONE"
+      ]
+    },
+    "CreateProdResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "prod"
       ]
     }
   },
@@ -192,7 +206,35 @@
               "ResponseCode": 200,
               "ResponsePagePath": "/"
             }
-          ]
+          ],
+          "ViewerCertificate": {
+            "Fn::If": [
+              "CreateProdResources",
+              {
+                "AcmCertificateArn": {
+                  "Ref": "acmCertificateArn"
+                },
+                "MinimumProtocolVersion": "TLSv1.2_2021",
+                "SslSupportMethod": "sni-only"
+              },
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          },
+          "Aliases": {
+            "Fn::If": [
+              "CreateProdResources",
+              [
+                {
+                  "Ref": "aliases"
+                }
+              ],
+              {
+                "Ref": "AWS::NoValue"
+              }
+            ]
+          }
         }
       }
     }
