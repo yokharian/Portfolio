@@ -108,5 +108,55 @@
       "providerPlugin": "awscloudformation",
       "service": "S3AndCloudFront"
     }
+  },
+  "parameters": {
+    "AMPLIFY_auth_escobedoAuth_googleClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "escobedoAuth"
+        }
+      ]
+    },
+    "AMPLIFY_function_escobedoAuthCustomMessage_EMAILMESSAGE": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "escobedoAuthCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_escobedoAuthCustomMessage_EMAILSUBJECT": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "escobedoAuthCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_escobedoAuthCustomMessage_REDIRECTURL": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "escobedoAuthCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_escobedoAuthCustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "escobedoAuthCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_escobedoAuthCustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "escobedoAuthCustomMessage"
+        }
+      ]
+    }
   }
 }
