@@ -1,0 +1,84 @@
+*
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  margin: 0
+
+#root
+  display: flex
+  align-items: center
+  justify-content: center
+  background: #f8f8f8
+  height: 100%
+
+
+.container
+  display: flex
+  flex-direction: column
+  width: 540px
+  height: 680px
+  background: white
+  border-radius: 16px
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.0)
+
+.messages
+  flex: 1
+  position: relative
+
+.messages-scroller
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  display: flex
+  flex-direction: column
+  padding: 16px
+  overflow-y: scroll
+
+.message
+  align-self: flex-start
+  margin-top: 4px
+  padding: 8px 12px
+  max-width: 240px
+  background: #f1f0f0
+  border-radius: 16px
+  font-size: 14px
+
+  &.me
+    align-self: flex-end
+    background: #2196F3
+    color: white
+    width: fit-content
+//   margin: 10px
+.chat-bar
+  height: 64px
+  border-top: 1px solid #ddd
+
+  .form
+    height: 100%
+    padding: 16px
+
+    input
+      width: 100%
+      height: 32px
+      padding: 8px 16px
+      border: 1px solid #ddd
+      border-radius: 16px
+      outline: none
+
+      &:focus
+        border: 1px solid #2196F3
+
+::-webkit-scrollbar
+  width: 10px
+
+::-webkit-scrollbar-track
+  background: #f1f1f1
+
+::-webkit-scrollbar-thumb
+  background: #888
+
+  &:hover
+    background: #555

@@ -15,20 +15,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NoicefluidComponent } from './noicefluid/noicefluid.component';
 import { YtPlayerComponent } from './yt-player/yt-player.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    YtPlayerComponent,
-    DashboardComponent,
-    NoicefluidComponent,
-  ],
+  declarations: [AppComponent, YtPlayerComponent, ChatComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -49,6 +44,7 @@ import { YtPlayerComponent } from './yt-player/yt-player.component';
     MatCardModule,
     MatCardModule,
     YouTubePlayerModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
