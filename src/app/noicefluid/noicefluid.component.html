@@ -1,0 +1,128 @@
+<amplify-authenticator
+  (keydown.escape)="hideAuthenticator($event)"
+  (keyup.escape)="hideAuthenticator($event)"
+  [hidden]="authenticatorHidden"
+  [services]="services"
+  [socialProviders]="['google']"
+  variation="modal"
+>
+  <!-- sign-up-field override -->
+  <ng-template amplifySlot="sign-up-form-fields" let-validationErrors="validationErrors">
+    <!-- Re-use default `Authenticator.SignUp.FormFields` -->
+    <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
+    <mat-radio-group label="Gender" name="gender">
+      <mat-radio-button value="Male">Male</mat-radio-button>
+      <mat-radio-button value="Female">Female</mat-radio-button>
+      <mat-radio-button value="Other">Other</mat-radio-button>
+      <p class="amplify-text amplify-field__error-message">{{validationErrors.gender}}</p>
+    </mat-radio-group>
+  </ng-template>
+</amplify-authenticator>
+
+<body class="bodychat">
+<header class="nav-bar">
+  <div class="w-container">
+    <div class="w-row">
+      <div class="brand-column w-col w-col-4 w-col-tiny-tiny-stack"><img alt="" class="logo"
+                                                                         sizes="(max-width: 479px) 67vw, 41px"
+                                                                         src="images/Social_Profile.png"
+                                                                         srcset="images/Social_Profile-p-500.png 500w, images/Social_Profile-p-800.png 800w, images/Social_Profile.png 1080w"
+                                                                         width="41px">
+        <div class="company">NoiceFluid</div>
+      </div>
+      <nav class="nav-column w-col w-col-8 w-col-tiny-tiny-stack">
+        <a (click)="showAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
+           href="#">Login</a>
+        <a (click)="authService.signOut()" *ngIf="authenticated" class="nav-link login" href="#">Logout</a>
+
+      </nav>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="w-layout-grid grid">
+    <div class="div-block-2" id="w-node-f4f20d80-04d1-d214-aedc-33213d72637d-ac6b6132">
+      <yt-player></yt-player>
+      <!--      <div class="w-embed-youtubevideo youtube" id="w-node-_2d3fb2ab-5acd-6ffc-ffc1-05c59e7bb1ee-ac6b6132">-->
+      <!--      </div>-->
+
+    </div>
+    <app-chat></app-chat>
+    <!--    <div id="w-node-be04aec8-2ba6-5fe8-1863-fc5169ac60a0-ac6b6132">-->
+    <!--      <div class="w-tabs" data-current="Tab 1" data-duration-in="300"-->
+    <!--           data-duration-out="100" data-easing="ease" id="w-node-_796c01d0-f8e9-b899-b9db-077b9919c746-ac6b6132">-->
+    <!--        <div class="tabs-menu w-tab-menu">-->
+    <!--          <a class="w-inline-block w-tab-link w--current" data-w-tab="Tab 1">-->
+    <!--            <div>Tab 1</div>-->
+    <!--          </a>-->
+    <!--        </div>-->
+    <!--        <div class="w-tab-content">-->
+    <!--          <div class="w-tab-pane w--tab-active" data-w-tab="Tab 1">-->
+    <!--            <div class="w-layout-blockcontainer container-3 w-container">-->
+    <!--              <div></div>-->
+    <!--              <div></div>-->
+    <!--            </div>-->
+    <!--            <div class="w-layout-blockcontainer container-2 w-container">-->
+    <!--              <div class="w-form">-->
+    <!--                <form data-name="Email Form" data-wf-element-id="b25dfee4-3262-b413-eee1-85a8acacdb17"-->
+    <!--                      data-wf-page-id="651ca5c0aa522630ac6b6132" id="email-form"-->
+    <!--                      method="get"-->
+    <!--                      name="email-form">-->
+    <!--                  <div class="w-layout-hflex flex-block"><input class="text-field-2 w-input" data-name="Email"-->
+    <!--                                                                id="email" maxlength="256" name="email"-->
+    <!--                                                                placeholder="" required="" type="email"><input-->
+    <!--                    class="submit-button-2 w-button" data-wait="Please wait..." type="submit" value="Submit"></div>-->
+    <!--                </form>-->
+    <!--                <div class="w-form-done">-->
+    <!--                  <div>Thank you! Your submission has been received!</div>-->
+    <!--                </div>-->
+    <!--                <div class="w-form-fail">-->
+    <!--                  <div>Oops! Something went wrong while submitting the form.</div>-->
+    <!--                </div>-->
+    <!--              </div>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </div>
+</section>
+<section>
+  <form action="/search" class="w-form"><label for="search">Search</label>
+    <div class="w-slider" data-animation="slide" data-autoplay="false" data-autoplay-limit="0" data-delay="4000"
+         data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false"
+         data-infinite="true" data-nav-spacing="3">
+      <div class="w-slider-mask">
+        <div class="w-slide"></div>
+        <div class="w-slide"></div>
+      </div>
+      <div class="w-slider-arrow-left">
+        <div class="w-icon-slider-left"></div>
+      </div>
+      <div class="w-slider-arrow-right">
+        <div class="w-icon-slider-right"></div>
+      </div>
+      <div class="w-slider-nav w-round w-num"></div>
+    </div>
+    <input class="w-input" id="search" maxlength="256" name="query" placeholder="Search…" required=""
+           type="search"><input class="w-button" type="submit" value="Search">
+  </form>
+</section>
+<footer class="section footer">
+  <div class="container w-container">
+    <div class="w-row">
+      <div class="w-col w-col-6">
+        <div class="footer-text">© All Rights Reserved</div>
+      </div>
+      <div class="right-footer-col w-col w-col-6">
+        <a class="social-icon w-inline-block" href="#"><img alt="" src="images/14-social-email_114-social-email.png"
+                                                            width="20"></a>
+        <a class="social-icon w-inline-block" href="#" target="_blank"><img
+          alt="" src="images/14-social-facebook_114-social-facebook.png" width="20"></a>
+        <a class="social-icon w-inline-block" href="#" target="_blank"><img
+          alt="" src="images/14-social-twitter_114-social-twitter.png" width="20"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>

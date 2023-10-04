@@ -3,7 +3,7 @@
     <div class="messages">
       <div class="messages-scroller">
         <ng-container *ngFor="let message of messages">
-          <div [ngClass]="message.author === user.nickname ? 'message me' : 'message'">
+          <div [ngClass]="message.author === 'yokharian' ? 'message me' : 'message'">
             {{message.body}}
           </div>
         </ng-container>

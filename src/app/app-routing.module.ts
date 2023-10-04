@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { YtPlayerComponent } from './yt-player/yt-player.component';
-import { ChatComponent } from './chat/chat.component';
-import { AppComponent } from './app.component';
+import { Error404Component } from './error404/error404.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NoicefluidComponent } from './noicefluid/noicefluid.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'index', component: AppComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: 'ytplayer', component: YtPlayerComponent },
+  { path: 'index', component: LandingPageComponent },
+  { path: 'chat', component: NoicefluidComponent },
+  { path: '404', component: Error404Component },
 ];
 
 @NgModule({

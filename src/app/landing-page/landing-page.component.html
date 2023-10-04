@@ -1,0 +1,136 @@
+<amplify-authenticator
+  (keydown.escape)="hideAuthenticator($event)"
+  (keyup.escape)="hideAuthenticator($event)"
+  [hidden]="authenticatorHidden"
+  [services]="services"
+  [socialProviders]="['google']"
+  variation="modal"
+>
+  <!-- sign-up-field override -->
+  <ng-template amplifySlot="sign-up-form-fields" let-validationErrors="validationErrors">
+    <!-- Re-use default `Authenticator.SignUp.FormFields` -->
+    <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
+    <mat-radio-group label="Gender" name="gender">
+      <mat-radio-button value="Male">Male</mat-radio-button>
+      <mat-radio-button value="Female">Female</mat-radio-button>
+      <mat-radio-button value="Other">Other</mat-radio-button>
+      <p class="amplify-text amplify-field__error-message">{{validationErrors.gender}}</p>
+    </mat-radio-group>
+  </ng-template>
+</amplify-authenticator>
+
+<body class="body">
+<div class="div-block">
+  <header class="nav-bar">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="brand-column w-col w-col-4 w-col-tiny-tiny-stack"><img alt="" class="logo"
+                                                                           sizes="(max-width: 479px) 67vw, 41px"
+                                                                           src="images/Social_Profile.png"
+                                                                           srcset="images/Social_Profile-p-500.png 500w, images/Social_Profile-p-800.png 800w, images/Social_Profile.png 1080w"
+                                                                           width="41px">
+          <div class="company">NoiceFluid</div>
+        </div>
+        <nav class="nav-column w-col w-col-8 w-col-tiny-tiny-stack">
+          <a class="nav-link" href="/chat">Go to Chat</a>
+          <a class="nav-link" href="#features">Features</a>
+          <a (click)="showAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
+             href="#">Login</a>
+          <a (click)="authService.signOut()" *ngIf="authenticated" class="nav-link login" href="#">Logout</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="section hero">
+    <div class="w-container">
+      <h1 class="hero-heading">Control YouTube together with other people</h1>
+      <p class="hero-subhead">This application is a YouTube player controlled in real time by different people</p>
+      <div class="button-group">
+
+        <a (click)="showAuthenticator(true)" *ngIf="!authenticated"
+           class="button sign-up"
+           href="#">Sign up for free</a>
+        <a (click)="authService.signOut()" *ngIf="authenticated" class="button sign-up" href="#">Logout</a>
+
+        <a class="button" href="#features">see features</a>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="mobile">
+    <div class="w-container">
+      <h2 class="section-title">Use your favorite devices to watch YouTube together</h2>
+      <p class="section-subtitle">nocefluid is cross-platform with responsive web design</p>
+      <div class="w-row">
+        <div class="center w-col w-col-6"><img alt="" sizes="(max-width: 767px) 90vw, (max-width: 991px) 354px, 452px"
+                                               src="images/3-responsive-color.png"
+                                               srcset="images/3-responsive-color-p-500x571.png 500w, images/3-responsive-color.png 904w"
+                                               width="452px">
+        </div>
+        <div class="content-column w-col w-col-6"><img alt="" class="grey-icon"
+                                                       src="images/4-icon-chrome_14-icon-chrome.png"
+                                                       width="37px"><img alt=""
+                                                                         class="grey-icon"
+                                                                         src="images/4-icon-fire_14-icon-fire.png"
+                                                                         width="37px"><img
+          alt="" class="grey-icon" src="images/4-icon-ie_14-icon-ie.png" width="37px"><img
+          alt="" class="grey-icon" src="images/4-icon-safari_14-icon-safari.png" width="37px">
+          <h3>Broad browser support, baby.</h3>
+          <p>All major browsers are supported including Internet Explorer. Send it to your best friends and your
+            grandma. It’ll work on their computers and phones.</p><img alt=""
+                                                                       class="grey-icon"
+                                                                       src="images/5-icon-apple_15-icon-apple.png"
+                                                                       width="37px"><img
+            alt="" class="grey-icon" src="images/6-icon-android_16-icon-android.png" width="37px"><img
+            alt="" class="grey-icon" src="images/7-icon-microsoft_17-icon-microsoft.png" width="37px">
+          <h3>It’s gonna look good on all devices.</h3>
+          <p>Supported devices: <br>- IOS<br>- Android<br>- Windows Phone</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section centered" id="features">
+    <div class="w-container">
+      <h2 class="section-title">Here’s some more things you’ll love.</h2>
+      <p class="section-subtitle">Send it to your best friends and your grandma. It’ll work on their computers and
+        phones.</p>
+      <div class="w-row">
+        <div class="w-col w-col-4 w-col-small-4">
+          <div class="icons"><img alt="" src="images/9-icon2-eye_19-icon2-eye.png" width="25"></div>
+          <h3>Moderate</h3>
+          <p>We have a manual moderation and approval system to avoid awkward moments and inappropriate videos.</p>
+        </div>
+        <div class="w-col w-col-4 w-col-small-4">
+          <div class="icons"><img alt="" src="images/9-icon2-chat_19-icon2-chat.png" width="25"></div>
+          <h3>Chat</h3>
+          <p>Chat, comment and debate what&#x27;s happening on the live stream.</p>
+        </div>
+        <div class="w-col w-col-4 w-col-small-4">
+          <div class="icons"><img alt="" src="images/9-icon2-video_19-icon2-video.png" width="25"></div>
+          <h3>Videos</h3>
+          <p>Play videos and let others show you their visual interests through our YouTube live stream</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="section footer">
+  <div class="container w-container">
+    <div class="w-row">
+      <div class="w-col w-col-6">
+        <div class="footer-text">© All Rights Reserved</div>
+      </div>
+      <div class="right-footer-col w-col w-col-6">
+        <a class="social-icon w-inline-block" href="#"><img alt="" src="images/14-social-email_114-social-email.png"
+                                                            width="20"></a>
+        <a class="social-icon w-inline-block" href="#" target="_blank"><img
+          alt="" src="images/14-social-facebook_114-social-facebook.png" width="20"></a>
+        <a class="social-icon w-inline-block" href="#" target="_blank"><img
+          alt="" src="images/14-social-twitter_114-social-twitter.png" width="20"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+
+

@@ -19,11 +19,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { YtPlayerComponent } from './yt-player/yt-player.component';
-import { ChatComponent } from './chat/chat.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { Error404Component } from './error404/error404.component';
+import { NoicefluidComponent } from './noicefluid/noicefluid.component';
+import { YtPlayerComponent } from './noicefluid/yt-player/yt-player.component';
+import { ChatComponent } from './noicefluid/chat/chat.component';
 
 @NgModule({
-  declarations: [AppComponent, YtPlayerComponent, ChatComponent],
+  declarations: [
+    AppComponent,
+    LandingPageComponent,
+    Error404Component,
+    NoicefluidComponent,
+    YtPlayerComponent,
+    ChatComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,

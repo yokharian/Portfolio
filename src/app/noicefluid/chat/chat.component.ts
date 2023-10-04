@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { APIService, User } from './../API.service';
+import { APIService, User } from './../../API.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -36,9 +36,11 @@ export class ChatComponent implements OnInit {
     event.stopPropagation();
     const input = {
       channelID: '2',
-      author: this.user.nickname.trim(),
+      // author: this.user.nickname.trim(),
+      author: 'yokharian',
       body: inputElement.value.trim(),
     };
+    this.messages.push(input);
     // this.api.CreateMessage(input).then((val) => {
     //   console.log('Send Message Success =>', val);
     //   inputElement.value = '';
