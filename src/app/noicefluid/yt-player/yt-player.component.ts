@@ -1,5 +1,4 @@
-// https://developers.google.com/youtube/player_parameters.html?playerVersion=HTML5&hl=es
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
@@ -7,8 +6,11 @@ import { YouTubePlayer } from '@angular/youtube-player';
   templateUrl: './yt-player.component.html',
   styleUrls: ['./yt-player.component.sass'],
 })
-export class YtPlayerComponent implements OnInit, AfterViewInit {
+export class YtPlayerComponent implements OnInit {
   @ViewChild('MainPlayer') MainPlayer!: YouTubePlayer;
+  @Input() videoWidth?: number;
+  @Input() videoHeight?: number;
+
   public playerVars: YT.PlayerVars = {
     autoplay: <YT.AutoPlay.AutoPlay>1,
     controls: <YT.Controls.Hide>0,
@@ -16,11 +18,12 @@ export class YtPlayerComponent implements OnInit, AfterViewInit {
     autohide: <YT.AutoHide>1,
     disablekb: <YT.KeyboardControls>1,
     showinfo: <YT.ShowInfo>0,
-    // mute: <YT.Mute>1,
     loop: <YT.Loop>1,
   };
-  private DEFAULT_VIDEO_ID = 'aU-bDvKpmpI';
+  public DEFAULT_VIDEO_ID = 'aU-bDvKpmpI';
   private apiLoaded = false;
+
+  constructor() {}
 
   ngOnInit() {
     if (!this.apiLoaded) {
@@ -33,40 +36,25 @@ export class YtPlayerComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
-    this.MainPlayer.stateChange.subscribe(this.onStateChange);
-    this.MainPlayer.ready.subscribe(this.onReady);
-    this.MainPlayer.error.subscribe(this.onError);
-    this.MainPlayer.videoId = this.DEFAULT_VIDEO_ID;
-  }
-
-  public click() {
-    this.MainPlayer.videoId = '';
-
-    this.MainPlayer.startSeconds = 5;
-    this.MainPlayer.endSeconds = 10;
-  }
-
-  public changeVideo() {
-    this.MainPlayer.videoId = 'Jm_ZdGh55n4';
-    this.MainPlayer.startSeconds = 5;
-    this.MainPlayer.endSeconds = 10;
-  }
-
-  private onReady(event: YT.PlayerEvent) {
+  onReady(event: YT.PlayerEvent) {
     console.log('ready');
   }
 
-  private onStateChange(event: YT.OnStateChangeEvent) {
+  onStateChange(event: YT.OnStateChangeEvent) {
     const state = event.data;
-
-    console.log(`cambio de estado ${state}`);
     if (state == YT.PlayerState.ENDED) {
       console.log('siguiente video');
+      if (this.MainPlayer.videoId == this.DEFAULT_VIDEO_ID) {
+        this.MainPlayer.seekTo(0, true);
+      }
+    } else if (state == YT.PlayerState.PAUSED) {
+      console.log('video pausado');
+    } else {
+      console.log(state);
     }
   }
 
-  private onError(event: YT.OnErrorEvent) {
-    console.log(`error=${event.data}`);
+  onError(event: YT.OnErrorEvent) {
+    console.error(event);
   }
 }

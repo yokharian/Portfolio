@@ -460,10 +460,12 @@ p {
 
 .text-field-2 {
   width: 100%;
+  flex: 1;
 }
 
 .submit-button-2 {
   width: auto;
+  flex: 0 auto;
 }
 
 .flex-block {

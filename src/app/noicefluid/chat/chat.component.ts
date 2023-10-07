@@ -9,7 +9,18 @@ import { Title } from '@angular/platform-browser';
 })
 export class ChatComponent implements OnInit {
   @Input() user!: User;
-  messages: any[] = [];
+  messages: any[] = [
+    { author: 'yokhariann', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokhariann', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+    { author: 'yokharian', body: 'bodyasdasd' },
+  ];
   services: any = {};
 
   constructor(private api: APIService, public titleService: Title) {

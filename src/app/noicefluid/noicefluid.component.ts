@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 @Component({
@@ -6,7 +14,7 @@ import { AuthenticatorService } from '@aws-amplify/ui-angular';
   templateUrl: './noicefluid.component.html',
   styleUrls: ['./noicefluid.component.sass'],
 })
-export class NoicefluidComponent {
+export class NoicefluidComponent implements AfterViewInit, OnDestroy {
   // noinspection JSUnusedGlobalSymbols
   services = {
     async validateCustomSignUp(formData: Record<string, string>) {
@@ -20,27 +28,54 @@ export class NoicefluidComponent {
   };
 
   authenticatorHidden = true;
+  @ViewChild('DivMainPlayer') DivMainPlayer!: ElementRef<HTMLDivElement>;
+  videoWidth: number | undefined;
+  videoHeight: number | undefined;
 
-  constructor(public authService: AuthenticatorService) {}
+  constructor(
+    public authService: AuthenticatorService,
+    private _changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   get authenticated(): boolean {
     return this.authService.authStatus == 'authenticated';
   }
 
-  hideAuthenticator(event: Event | undefined = undefined) {
-    if (event instanceof Event) {
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
+    event: KeyboardEvent
+  ) {
+    if (event.key.toLocaleLowerCase() == 'escape') {
       event.preventDefault();
       event.stopPropagation();
+      this.toggleAuthenticator(true);
     }
-    this.authenticatorHidden = true;
   }
 
-  showAuthenticator(signUp: boolean = false) {
-    this.authenticatorHidden = false;
+  public toggleAuthenticator(hide: boolean, signUp: boolean = false) {
+    this.authenticatorHidden = hide;
     if (signUp) {
       this.authService.toSignUp();
     } else {
       this.authService.toSignIn();
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  }
+
+  onResize = (): void => {
+    // Automatically expand the video to fit the page up to 1280px x 720px
+    this.videoWidth = Math.min(
+      this.DivMainPlayer.nativeElement.clientWidth,
+      1280
+    );
+    this.videoHeight = this.videoWidth * 0.5625;
+    this._changeDetectorRef.detectChanges();
+  };
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.onResize);
   }
 }

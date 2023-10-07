@@ -1,6 +1,4 @@
 <amplify-authenticator
-  (keydown.escape)="hideAuthenticator($event)"
-  (keyup.escape)="hideAuthenticator($event)"
   [hidden]="authenticatorHidden"
   [services]="services"
   [socialProviders]="['google']"
@@ -31,7 +29,7 @@
         <div class="company">NoiceFluid</div>
       </div>
       <nav class="nav-column w-col w-col-8 w-col-tiny-tiny-stack">
-        <a (click)="showAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
+        <a (click)="toggleAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
            href="#">Login</a>
         <a (click)="authService.signOut()" *ngIf="authenticated" class="nav-link login" href="#">Logout</a>
 
@@ -41,50 +39,19 @@
 </header>
 <section>
   <div class="w-layout-grid grid">
-    <div class="div-block-2" id="w-node-f4f20d80-04d1-d214-aedc-33213d72637d-ac6b6132">
-      <yt-player></yt-player>
-      <!--      <div class="w-embed-youtubevideo youtube" id="w-node-_2d3fb2ab-5acd-6ffc-ffc1-05c59e7bb1ee-ac6b6132">-->
-      <!--      </div>-->
+    <div #DivMainPlayer class="div-block-2" id="w-node-f4f20d80-04d1-d214-aedc-33213d72637d-ac6b6132">
+      <div class="w-embed-youtubevideo youtube" id="w-node-_2d3fb2ab-5acd-6ffc-ffc1-05c59e7bb1ee-ac6b6132"
+           style="padding-top:56.17021276595745%">
+        <yt-player
+          [videoHeight]="videoHeight"
+          [videoWidth]="videoWidth"
+        ></yt-player>
+      </div>
+    </div>
+    <div id="w-node-be04aec8-2ba6-5fe8-1863-fc5169ac60a0-ac6b6132">
+      <app-chat></app-chat>
 
     </div>
-    <app-chat></app-chat>
-    <!--    <div id="w-node-be04aec8-2ba6-5fe8-1863-fc5169ac60a0-ac6b6132">-->
-    <!--      <div class="w-tabs" data-current="Tab 1" data-duration-in="300"-->
-    <!--           data-duration-out="100" data-easing="ease" id="w-node-_796c01d0-f8e9-b899-b9db-077b9919c746-ac6b6132">-->
-    <!--        <div class="tabs-menu w-tab-menu">-->
-    <!--          <a class="w-inline-block w-tab-link w--current" data-w-tab="Tab 1">-->
-    <!--            <div>Tab 1</div>-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        <div class="w-tab-content">-->
-    <!--          <div class="w-tab-pane w--tab-active" data-w-tab="Tab 1">-->
-    <!--            <div class="w-layout-blockcontainer container-3 w-container">-->
-    <!--              <div></div>-->
-    <!--              <div></div>-->
-    <!--            </div>-->
-    <!--            <div class="w-layout-blockcontainer container-2 w-container">-->
-    <!--              <div class="w-form">-->
-    <!--                <form data-name="Email Form" data-wf-element-id="b25dfee4-3262-b413-eee1-85a8acacdb17"-->
-    <!--                      data-wf-page-id="651ca5c0aa522630ac6b6132" id="email-form"-->
-    <!--                      method="get"-->
-    <!--                      name="email-form">-->
-    <!--                  <div class="w-layout-hflex flex-block"><input class="text-field-2 w-input" data-name="Email"-->
-    <!--                                                                id="email" maxlength="256" name="email"-->
-    <!--                                                                placeholder="" required="" type="email"><input-->
-    <!--                    class="submit-button-2 w-button" data-wait="Please wait..." type="submit" value="Submit"></div>-->
-    <!--                </form>-->
-    <!--                <div class="w-form-done">-->
-    <!--                  <div>Thank you! Your submission has been received!</div>-->
-    <!--                </div>-->
-    <!--                <div class="w-form-fail">-->
-    <!--                  <div>Oops! Something went wrong while submitting the form.</div>-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
 </section>
 <section>

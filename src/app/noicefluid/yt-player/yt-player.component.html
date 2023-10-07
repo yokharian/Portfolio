@@ -1,8 +1,8 @@
 <youtube-player #MainPlayer
-                [playerVars]="playerVars"
+                (error)="this.onError($event)"
+                (ready)="this.onReady($event)"
+                (stateChange)="this.onStateChange($event)"
+                [height]="videoHeight" [playerVars]="playerVars"
+                [videoId]="DEFAULT_VIDEO_ID"
+                [width]="videoWidth"
                 class="video-responsive"></youtube-player>
-
-<div class="div-block-3">
-  <a class="button-4 w-button" href="#">PLAY</a>
-  <a class="w-button" href="#">PAUSE</a>
-</div>
