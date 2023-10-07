@@ -1,6 +1,4 @@
 <amplify-authenticator
-  (keydown.escape)="hideAuthenticator($event)"
-  (keyup.escape)="hideAuthenticator($event)"
   [hidden]="authenticatorHidden"
   [services]="services"
   [socialProviders]="['google']"
@@ -34,7 +32,7 @@
         <nav class="nav-column w-col w-col-8 w-col-tiny-tiny-stack">
           <a class="nav-link" href="/chat">Go to Chat</a>
           <a class="nav-link" href="#features">Features</a>
-          <a (click)="showAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
+          <a (click)="toggleAuthenticator(false)" *ngIf="!authenticated" class="nav-link login"
              href="#">Login</a>
           <a (click)="authService.signOut()" *ngIf="authenticated" class="nav-link login" href="#">Logout</a>
         </nav>
@@ -47,7 +45,7 @@
       <p class="hero-subhead">This application is a YouTube player controlled in real time by different people</p>
       <div class="button-group">
 
-        <a (click)="showAuthenticator(true)" *ngIf="!authenticated"
+        <a (click)="toggleAuthenticator(false,true)" *ngIf="!authenticated"
            class="button sign-up"
            href="#">Sign up for free</a>
         <a (click)="authService.signOut()" *ngIf="authenticated" class="button sign-up" href="#">Logout</a>
