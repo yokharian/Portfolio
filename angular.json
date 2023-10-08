@@ -74,7 +74,6 @@
               "src/styles.sass"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js"
             ]
           },
           "configurations": {
@@ -141,7 +140,6 @@
               "src/styles.sass"
             ],
             "scripts": [
-              "node_modules/marked/marked.min.js"
             ]
           }
         }

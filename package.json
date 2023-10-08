@@ -24,17 +24,16 @@
     "@angular/youtube-player": "^16.2.6",
     "@aws-amplify/ui-angular": "^4.0.9",
     "aws-amplify": "^5.3.11",
-    "ngx-markdown": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
+    "@types/node": "^20.8.3",
     "@angular-devkit/build-angular": "^16.2.2",
     "@angular/cli": "~16.2.2",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
-    "@types/marked": "^4.3.2",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
