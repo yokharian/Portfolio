@@ -12,9 +12,8 @@ permissions:
 jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
-
     steps:
-        # Download packages
+
       - name: Submodule Update
         run: |
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -32,31 +31,34 @@ jobs:
           repository: 'yokharian/locowebflow'
 
       - name: Install packages
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          python -c "import chromedriver_autoinstaller as c;print(c.install())"
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       - name: Download current version of the site
         uses: actions/checkout@v2
         with:
           # HERE, YOU NEED TO PLACE YOUR REPOSITORY
           repository: 'yokharian/portfolio'
-          ref: master # TARGET BRANCH
+          ref: gh-pages # TARGET BRANCH
           # THE FOLDER, WHERE LOCOWEBFLOW EXPORTS YOUR CONTENT BY DEFAULT
-          path: locowebflow/dist/${{vars.SITE_NAME}}
-
-      - name: updating PATH to enable importing my package
-        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+          path: "locowebflow/dist/${{vars.SITE_NAME}}"
 
       - name: Run LocoWebflow
         working-directory: ./locowebflow
         run: |
           echo '${{ secrets.JSON_CONFIG }}' > ./config.json
-          python -m locowebflow ./config.json --single-page  # FIRST RUN
+          python -m locowebflow ./config.json
+          # Fix for folders with spaces
+          cd dist && mv "${{vars.SITE_NAME}}" out
 
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: ./locowebflow/dist/${{vars.SITE_NAME}}
+          BRANCH: gh-pages # TARGET BRANCH
+          # THE FOLDER, WHERE LOCOWEBFLOW EXPORTS YOUR CONTENT BY DEFAULT
+          FOLDER: ./locowebflow/dist/out
           GIT_CONFIG_NAME: GITHUB ACTION
           COMMIT_MESSAGE: 🤖 Deployed via LocoWebflow.
