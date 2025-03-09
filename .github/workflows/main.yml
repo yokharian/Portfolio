@@ -54,10 +54,9 @@ jobs:
 
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
-        working-directory: ./locowebflow/dist/${{vars.SITE_NAME}}
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: .
+          FOLDER: ./locowebflow/dist/${{vars.SITE_NAME}}
           GIT_CONFIG_NAME: GITHUB ACTION
           COMMIT_MESSAGE: 🤖 Deployed via LocoWebflow.
