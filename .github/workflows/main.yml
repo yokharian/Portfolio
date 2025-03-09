@@ -1,0 +1,63 @@
+name: Deploy from Webflow to Github Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+        # Download packages
+      - name: Submodule Update
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Download locowebflow
+        uses: actions/checkout@v2
+        with:
+          repository: 'yokharian/locowebflow'
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Download current version of the site
+        uses: actions/checkout@v2
+        with:
+          # HERE, YOU NEED TO PLACE YOUR REPOSITORY
+          repository: 'yokharian/portfolio'
+          ref: master # TARGET BRANCH
+          # THE FOLDER, WHERE LOCOWEBFLOW EXPORTS YOUR CONTENT BY DEFAULT
+          path: locowebflow/dist/${{vars.SITE_NAME}}
+
+      - name: updating PATH to enable importing my package
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+      - name: Run LocoWebflow
+        working-directory: ./locowebflow
+        run: |
+          echo '${{ secrets.JSON_CONFIG }}' > ./config.json
+          python -m locowebflow ./config.json --single-page  # FIRST RUN
+
+      - name: Deploy to Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        working-directory: ./locowebflow/dist/${{vars.SITE_NAME}}
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .
+          GIT_CONFIG_NAME: GITHUB ACTION
+          COMMIT_MESSAGE: 🤖 Deployed via LocoWebflow.
